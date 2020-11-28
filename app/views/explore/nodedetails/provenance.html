@@ -1,0 +1,35 @@
+
+<div ng-controller="ProvenanceCtrl">
+    <div class="panel-group">
+        <div class="panel panel-primary panel-primary-custom">
+            <div class="panel-heading">AiiDA Provenance Browser</div>
+            <div class="panel-body">
+                <div id="right-container-window">
+                    <div class="fixed-metadata add-min-width" style="text-align: center">
+                        <div id='canvas3dtitle'><p><em>Click on node to browse, drag to animate</em></p></div>
+                    </div>
+                    <div class="fixed-metadata add-min-width">
+                        <div id="treeContent" class="provenance-container">
+                            <div ng-show="treeDataLoading" class="spinner-div">
+                                <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                            </div>
+                            <div id="nodeTree" ng-hide="treeDataLoading">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="fixed-metadata add-min-width" style="text-align: center" ng-show="nodeLimitExceeded">
+                        <p style="margin-bottom: 2px;">
+                            <span style="color: red" bind-html-compile="nodeLimitExceededMsg"></span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="styles/css/external/vis.min.css" />
+<script src="scripts/external/vis.min.js"></script>

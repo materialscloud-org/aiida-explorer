@@ -1,0 +1,205 @@
+$ng-table-background-color:              white;
+$ng-table-background-color-dark:         #3560A0;
+$ng-table-border-color:                  #3560A0;
+$ng-table-button-border-color:           #3560A0;
+$ng-table-border:                        0.4px solid $ng-table-border-color;
+$side-menu-color:                        #3560A0;
+$side-menu-hover-color:                  rgba(69, 152, 233, 0.27) !important;
+$side-menu-focus-color:                  red;
+
+/* Side menu */
+.grid-sidemenu {
+  ul, li {
+    list-style-type: none;
+    padding: 0px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .ul-mainmenu {
+    background-color: white;
+    border: 1px solid #3560A0 !important;
+    list-style-type: none;
+  }
+
+  .li-menu {
+    padding: 2px;
+    border: 1px solid #3560A0 !important;
+    text-transform: capitalize;
+  }
+
+  .li-menu-title {
+    font-size: 16px;
+    color: $side-menu-color;
+    padding: 6px 4px;
+    display: block;
+    text-transform: capitalize;
+  }
+
+  a.li-menu-title:hover {
+    background-color: $side-menu-hover-color;
+    }
+
+  .ul-submenu {
+    margin: 0px;
+    margin-left: 15px;
+    overflow: auto;
+
+    li {
+      padding: 2px 4px;
+    }
+
+    li:hover {
+      background-color: $side-menu-hover-color;
+    }
+  }
+
+  .selected {
+    color: $side-menu-focus-color !important;
+  }
+}
+
+
+/* overwrite ng-table css */
+
+.custom-table-container {
+  background-color: $ng-table-background-color;
+  padding: 1px;
+  margin: 10px;
+}
+
+.ng-table-custom {
+  background-color: white;
+  border: 1px solid $ng-table-border-color !important;
+  margin-bottom: 0px !important;
+}
+
+.ng-table-custom th {
+  background-color: $ng-table-background-color-dark;
+  border: $ng-table-border !important;
+  line-height: 30px !important;
+  color: white;
+}
+
+.ng-table-custom th.sortable.sort-asc,
+.ng-table-custom th.sortable.sort-desc {
+  background-color: $ng-table-background-color-dark !important;
+  text-shadow: none !important;
+}
+
+.ng-table-custom td {
+  text-align: center;
+  vertical-align: middle !important;
+  border-color: rgba(211, 211, 211, 0.1) !important;
+}
+
+
+.ng-table-custom > tbody > tr:hover {
+  background-color: rgba(69, 152, 233, 0.27) !important;
+}
+
+.ng-table-custom > tbody > tr {
+  background-color: transparent;
+}
+
+.ng-table-custom-button {
+  border: 1px solid $ng-table-button-border-color !important;
+  background-color: $ng-table-background-color-dark !important;
+  text-transform: none !important;
+  color: white !important
+}
+
+/* ng-table pagination */
+
+.ng-table-pager {
+  border: 0.4px solid $ng-table-border-color !important;
+  padding: 12px 8px 5px 8px;
+  background-color: $ng-table-background-color-dark !important;
+
+  ul li {
+    font-size: 12px !important;
+  }
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus
+{
+  border-color: white !important;
+  background-color: #d4d0d0 !important;
+}
+
+.custom-table-container .ng-table-counts .btn-default.active {
+  background-color: #d4d0d0 !important;
+}
+
+.custom-table-container .ng-table-counts > button{
+  color: #5257bf;
+  border-color: #ddd;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.custom-table-container .ng-table-counts .btn-default {
+  background-color: #fff;
+}
+
+.custom-table-container .ng-table-counts .btn-default.active {
+  background-color: #d0d8d3;
+}
+
+.custom-table-container .pagination > li > a{
+  color: #5257bf;
+}
+
+.custom-table-container button {
+  padding: 8px 10px !important;
+}
+
+.ng-table-pagination{
+  margin: 0px !important;
+}
+
+.k-tabstrip > .k-content:not(.k-state-active) {
+  display: block;
+  height: 0;
+  overflow-y: hidden;
+}
+
+.statistics-title {
+  display: block;
+  padding:5px 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.data-table {
+
+  max-width: 1200px;
+  margin: 5px auto;
+
+  table {
+
+    font-size: 15px !important;
+
+    tr {
+      cursor: pointer;
+    }
+
+    th, td, th.mdl-data-table__cell--non-numeric, td.mdl-data-table__cell--non-numeric {
+      text-align: center;
+      /*border: 1px solid;
+      border-color: inherit;*/
+    }
+
+    th {
+      color: #3560A0;
+      font-size: 14px !important;
+    }
+  }
+}

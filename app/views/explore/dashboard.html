@@ -1,0 +1,42 @@
+<div style="margin-bottom: 30px; margin-top: 30px;" class="archive-entry-available">
+    <h3 style="color: #d21717 !important; display:inline-block">Selected Profile: {{selectedProfileDisplayName}}</h3>
+
+    <span class="archive-doicitation" ng-if="selectedProfileInfo.ARCHIVE_ENTRY_DOI !== undefined" style="display: inline-block;vertical-align: middle; margin-left: 5px;">
+        <span class="doi-badge">
+            <span class="doi-left">DOI</span><a href="https://doi.org/{{selectedProfileInfo.ARCHIVE_ENTRY_DOI}}" class="doi-right">{{selectedProfileInfo.ARCHIVE_ENTRY_DOI}}</a>
+        </span>
+    </span>
+</div>
+
+<div class="view-menu-container">
+    <nav class="view-nav" role="navigation">
+
+        <a ui-sref="main.explore.dashboard.grid"
+           class="view-nav-item"
+           ng-class="selectedView === 'gridView'? 'selected' : ''"
+           ng-click="selectedView = 'gridView'">
+            <img src="images/table_icon.png" class="view-icon" height="18">
+            Grid
+        </a>
+
+        <a ui-sref="main.explore.dashboard.details({nodeType:'NODE', nodeFilter: ''})"
+           class="view-nav-item"
+           ng-class="selectedView === 'detailsView'? 'selected' : ''"
+           ng-click="selectedView = 'detailsView'">
+            <img src="images/info_icon.png" class="view-icon" height="18">
+            Details
+        </a>
+
+        <a ui-sref="main.explore.dashboard.statistics"
+           class="view-nav-item"
+           ng-class="selectedView === 'statisticsView'? 'selected' : ''"
+           ng-click="selectedView = 'statisticsView'">
+            <img src="images/statistics_icon.png" class="view-icon" height="18">
+            Statistics
+        </a>
+    </nav>
+</div>
+
+<div ui-view="" style="margin-top: 20px;">
+
+</div>

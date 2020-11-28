@@ -1,0 +1,185 @@
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+
+        <div class="panel panel-default panel-custom">
+            <div class="panel-info">
+                <div class="panel-title" role="tab">
+                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#reciprocalCellVector">
+                        Reciprocal cell vectors (1/&#8491;)
+                    </a>
+                </div>
+            </div>
+            <div id="reciprocalCellVector" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <div class="node-window-container">
+                        <table class="table attribute-table numbers-font-family">
+                            <thead>
+                            <tr>
+                                <th ng-repeat="hname in ['', 'x', 'y', 'z']">{{hname}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="rcell in reciprocalCell track by $index">
+                                <th scope="row">b<sub>{{$index + 1}}</sub></th>
+                                <td ng-repeat="value in rcell track by $index">{{value.toFixed(4)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        <div class="shadow-box">
+            <!-- Brillouin zone -->
+            <div class="plot-diagram BZ-kpoints-container" id="canvas3dcontainer">
+                <div id='canvas3dtitle'><p><em>Drag to rotate, scroll to zoom, double-click to enable/disable interaction</em></p></div>
+                <div id='bz-kpoints'></div><div id='info'></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-sm-12 col-md-6">
+
+        <div class="panel panel-default panel-custom">
+            <div class="panel-info">
+                <div class="panel-title" role="tab">
+                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#kpoints">
+                        Kpoints (1/&#8491;)
+                    </a>
+                </div>
+            </div>
+            <div id="kpoints" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <div class="node-window-container">
+                        <table class="table attribute-table numbers-font-family">
+                            <thead>
+                            <tr>
+                                <th ng-repeat="hname in ['K<sub>x</sub>', 'K<sub>y</sub>', 'K<sub>z</sub>']"
+                                    ng-bind-html="hname">{{hname}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="kpt in kpointsJson.explicit_kpoints_abs track by $index">
+                                <td ng-repeat="value in kpt track by $index">{{value.toFixed(10)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+
+        <div class="panel panel-default panel-custom">
+            <div class="panel-info">
+                <div class="panel-title" role="tab">
+                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#kpointsScaledUnit">
+                        Kpoints (scaled units)
+                    </a>
+                </div>
+            </div>
+            <div id="kpointsScaledUnit" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <div class="node-window-container">
+                        <table class="table attribute-table numbers-font-family">
+                            <thead>
+                            <tr>
+                                <th ng-repeat="hname in ['K<sub>x</sub>', 'K<sub>y</sub>', 'K<sub>z</sub>']"
+                                    ng-bind-html="hname">{{hname}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="kpt in kpointsJson.explicit_kpoints_rel track by $index">
+                                <td ng-repeat="value in kpt track by $index">{{value.toFixed(10)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row" style="margin-top: 30px;" ng-if="has_labels === true">
+    <div class="col-sm-12 col-md-6">
+
+        <div class="panel panel-default panel-custom">
+            <div class="panel-info">
+                <div class="panel-title" role="tab">
+                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#highSymmetryPoints">
+                        High-symmetry points (1/&#8491;)
+                    </a>
+                </div>
+            </div>
+            <div id="highSymmetryPoints" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <div class="node-window-container">
+                        <table class="table attribute-table numbers-font-family">
+                            <thead>
+                            <tr>
+                                <th ng-repeat="hname in ['K<sub>x</sub>', 'K<sub>y</sub>', 'K<sub>z</sub>'] track by $index"
+                                    ng-bind-html="hname">{{hname}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="(key, value) in kpointsJson.kpoints track by $index">
+                                <td ng-repeat="v in value track by $index">{{v.toFixed(10)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+
+        <div class="panel panel-default panel-custom">
+            <div class="panel-info">
+                <div class="panel-title" role="tab">
+                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#highSymmetryScaledPoints">
+                        High-symmetry points (scaled units)
+                    </a>
+                </div>
+            </div>
+            <div id="highSymmetryScaledPoints" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <div class="node-window-container">
+                        <table class="table attribute-table numbers-font-family">
+                            <thead>
+                            <tr>
+                                <th ng-repeat="hname in ['K<sub>x</sub>', 'K<sub>y</sub>', 'K<sub>z</sub>'] track by $index"
+                                    ng-bind-html="hname">{{hname}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="(key, value) in kpointsJson.kpoints_rel track by $index">
+                                <td ng-repeat="v in value track by $index">{{v.toFixed(10)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+

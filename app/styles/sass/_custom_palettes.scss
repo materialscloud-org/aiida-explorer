@@ -1,0 +1,24 @@
+/*
+In Angular Material, a theme is created by composing multiple palettes. In particular, a theme consists of:
+
+    * A primary palette: colors most widely used across all screens and components.
+    * An accent palette: colors used for the floating action button and interactive elements.
+    * A warn palette: colors used to convey error state.
+    * A foreground palette: colors for text and icons.
+    * A background palette: colors used for element backgrounds.
+*/
+
+@import '../../../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+// define 3 theme color
+// mat-palette accepts $palette-name, main, lighter and darker variants
+
+$custom-theme-primary: mat-palette($mat-indigo);
+$custom-theme-accent: mat-palette($mat-orange, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+@include angular-material-theme($custom-theme);

@@ -1,0 +1,19 @@
+@ngdoc overview
+@name API Documentation
+@description
+
+Materials Cloud is a portal to support research in computational materials science.
+
+It is structured around five core areas:
+
+- Learn the fundamentals of the field
+- Work using advanced tools and software-as-a-service
+- Discover curated materials properties
+- Explore the vast amounts of data stored with a full provenance model
+- Archive your results and share them with the community
+
+
+Materials Cloud embodies the principles of: 
+- Software-as-a-Service, to let users focus on research
+- Modularity, to encourage developers contribute their tools
+- Open Science, to create a social ecosystem to the benefit of the entire scientific community

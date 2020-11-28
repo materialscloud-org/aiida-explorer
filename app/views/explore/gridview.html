@@ -1,0 +1,40 @@
+<div class="grid-view" data-ng-controller="GridViewCtrl">
+
+    <div class="grid-sidemenu">
+        <div ng-show="sideMenuLoading" class="spinner-div">
+            <img src="images/mcloud_spinner.svg" class="spinner-icon" style="height: 4em; width: 4em;">
+        </div>
+        <div ng-hide="sideMenuLoading">
+            <ul ng-if="profileRestEndPoint.endsWith('v2') || profileRestEndPoint.endsWith('v3')" class="ul-mainmenu">
+
+                <li ng-click="setNodeType(nodeKey)" class="li-menu" ng-repeat="(nodeKey, nodeValue) in availableNodeTypes">
+                    <a ng-class="{selected: (nodeInfo.nodeType==nodeKey.toUpperCase() || (nodeInfo.nodeType=='CALCULATION' && nodeKey.toUpperCase()=='PROCESS')) && nodeInfo.nodeFilter==''}" ng-click="applyFilter('')" class="li-menu-title">{{ nodeKey }}</a>
+                    <ul class="ul-submenu" ng-if="nodeKey!='code'">
+                        <li ng-class="{selected: nodeInfo.nodeFilter==subtype.filter_name}" ng-repeat="subtype in nodeValue" ng-click="applyFilter(subtype.filter_name)">{{subtype.display_name}}</li>
+                    </ul>
+                </li>
+
+                <li ng-click="setNodeType('COMPUTER')" class="li-menu">
+                    <a ng-class="{selected: nodeInfo.nodeType=='COMPUTER' && nodeInfo.nodeFilter==''}" ng-click="applyFilter('')" class="li-menu-title">Computer</a>
+                </li>
+            </ul>
+
+            <div ng-if="profileRestEndPoint.endsWith('v4')" class="ul-mainmenu">
+                <div class="k-content">
+
+                    <div kendo-tree-view="tree" k-data-source="treeData" class="hasMenu" k-on-change="selectedItem = dataItem">
+                        <span k-template>
+                            <a ng-if="dataItem.text!='Unregistered'" ng-click="applyFilter(dataItem.full_type); setNodeType(dataItem.nodeType)" ng-class="{selected: nodeInfo.nodeFilter==dataItem.full_type}" class="li-menu-title">{{ dataItem.text }}</a>
+                            <span ng-if="dataItem.text=='Unregistered'" class="li-menu-title" style="color:black !important;">{{ dataItem.text }}</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div ng-click="setNodeType('COMPUTER')" class="li-menu">
+                    <a ng-class="{selected: nodeInfo.nodeType=='COMPUTER' && nodeInfo.nodeFilter==''}" ng-click="applyFilter('')" class="li-menu-title">Computer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-view="" style="margin-left: 255px; position: relative;"></div>
+</div>

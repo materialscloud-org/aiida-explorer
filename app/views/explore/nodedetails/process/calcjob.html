@@ -1,0 +1,220 @@
+<div ng-controller="CalcDetailsCtrl">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-8">
+
+            <div class="panel-group">
+                <div class="panel panel-primary panel-primary-custom">
+                    <div class="panel-heading">{{nodeDisplayType}}</div>
+                    <div class="panel-body">
+                        <div ng-show="nodeDataLoading" class="spinner-div">
+                            <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                        </div>
+                        <div ng-hide="nodeDataLoading">
+                            <div class="row">
+
+                                <div class="col-sm-12 col-md-6">
+                                    <p ng-repeat="(idx, info) in mainMetadata"
+                                       ng-if="nodeAttributes[info.key] != undefined">
+                                        <a href="#"
+                                           class="btn btn-primary btn-sm btn-as-label disabled">
+                                            {{info.display_name}}
+                                        </a> {{nodeAttributes[info.key]}}
+                                    </p>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="calc-inputls-container calc-io-container">
+                                        <p><a href="#"
+                                              class="btn btn-primary btn-sm btn-as-label disabled">
+                                            Input files
+                                        </a>
+                                        </p>
+                                        <div ng-show="loadingRetrievedInputs" class="spinner-div">
+                                            <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                                        </div>
+                                        <div ng-hide="loadingRetrievedInputs" class="calc-io-file-container">
+                                            <ul class="dashed-style-list" style="margin-left: -9px;">
+                                                <!-- Priority list: aiida.in and _aiidasubmit.sh -->
+                                                <li ng-repeat="filename in mainInputFiles"
+                                                    ng-if="retrievedInputs.indexOf(filename) >= 0">
+                                                    <md-button class="md-primary md-raised md-small"
+                                                               ng-click="displayFileContents($event, 'input', filename)"
+                                                               aria-label="View file"
+                                                               title="View file">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </md-button>
+                                                    <a class="btn btn-primary btn-small"
+                                                       style="padding: 2px 4px; font-size: 10px;"
+                                                       href="{{retrievedInputDownloadUrl + '&quot;' + filename + '&quot;'}}"
+                                                       target="_self"
+                                                       title="Download file">
+                                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                                    </a>
+                                                    <span style="display: inline-block; margin-left: 5px;">
+                                                                {{filename}}
+                                                            </span>
+                                                </li>
+                                                <li ng-repeat="filename in retrievedInputs | orderBy"
+                                                    ng-if="mainInputFiles.indexOf(filename) < 0">
+                                                    <md-button class="md-primary md-raised md-small"
+                                                               ng-click="displayFileContents($event, 'input', filename)"
+                                                               aria-label="View file"
+                                                               title="View file">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </md-button>
+                                                    <a class="btn btn-primary btn-small"
+                                                       style="padding: 2px 4px; font-size: 10px;"
+                                                       href="{{retrievedInputDownloadUrl + '&quot;' + filename + '&quot;'}}"
+                                                       target="_self"
+                                                       title="Download file">
+                                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                                    </a>
+                                                    <span style="display: inline-block; margin-left: 5px;">
+                                                                {{filename}}
+                                                            </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="calc-outputls-container calc-io-container">
+                                        <p><a href="#"
+                                              class="btn btn-primary btn-sm btn-as-label disabled">
+                                            Output files
+                                        </a>
+                                        </p>
+                                        <div ng-show="loadingRetrievedOutputs" class="spinner-div">
+                                            <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                                        </div>
+                                        <div ng-hide="loadingRetrievedOutputs" class="calc-io-file-container">
+                                            <ul class="dashed-style-list" style="margin-left: -9px;"
+                                                ng-if="isRetrievedOutputsAvailable == true">
+                                                <!-- Priority list: aiida.out -->
+                                                <li ng-repeat="filename in mainOutputFiles"
+                                                    ng-if="retrievedOutputs.indexOf(filename) >= 0">
+                                                    <md-button class="md-primary md-raised md-small"
+                                                               ng-click="displayFileContents($event, 'output', filename)"
+                                                               aria-label="View file"
+                                                               title="View file">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </md-button>
+                                                    <a class="btn btn-primary btn-small"
+                                                       style="padding: 2px 4px; font-size: 10px;"
+                                                       href="{{retrievedOutputDownloadUrl + '&quot;' + filename + '&quot;'}}"
+                                                       target="_self"
+                                                       title="Download file">
+                                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                                    </a>
+                                                    <span style="display: inline-block; margin-left: 5px;">
+                                                                {{filename}}
+                                                            </span>
+                                                </li>
+                                                <li ng-repeat="filename in retrievedOutputs | orderBy"
+                                                    ng-if="mainOutputFiles.indexOf(filename) < 0">
+                                                    <md-button class="md-primary md-raised md-small"
+                                                               ng-click="displayFileContents($event, 'output', filename)"
+                                                               aria-label="View file"
+                                                               title="View file">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </md-button>
+                                                    <a class="btn btn-primary btn-small"
+                                                       style="padding: 2px 4px; font-size: 10px;"
+                                                       href="{{retrievedOutputDownloadUrl + '&quot;' + filename + '&quot;'}}"
+                                                       target="_self"
+                                                       title="Download file">
+                                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                                    </a>
+                                                    <span style="display: inline-block; margin-left: 5px;">
+                                                                {{filename}}
+                                                            </span>
+                                                </li>
+                                            </ul>
+                                            <p ng-if="isRetrievedOutputsAvailable == false"
+                                               style="margin-left: 30px; color: #f37100;">
+                                                This node does not have an output with link retrieved.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="panel panel-default panel-custom">
+                                        <div class="panel-info">
+                                            <div class="panel-title" role="tab">
+                                                <a class="collapse" data-toggle="collapse" data-parent="#accordion"
+                                                   aria-expanded="true" href="#nodeMetadata">
+                                                    Node metadata
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div id="nodeMetadata" class="panel-collapse collapse in" role="tabpanel">
+                                            <div class="panel-body">
+
+                                                <div class="node-window-container">
+                                                    <div class="attribute-bottom-margin"
+                                                         ng-repeat="(key, val) in nodeAttributes"
+                                                         ng-if="key != 'last_job_info' && key != 'last_jobinfo' && key != 'source_file' && mainMetadataKeys.indexOf(key) < 0">
+                                                        <a href="#"
+                                                           class="btn btn-primary btn-sm btn-as-label disabled">{{key |
+                                                            replaceUnderscoreAndCapitalize}}</a>
+                                                        <span class="attribute-value">{{val}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div ng-show="displayLastjob">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <div class="panel panel-default panel-custom">
+                                        <div class="panel-info">
+                                            <div class="panel-title" role="tab" id="calcLastJobContainer">
+                                                <a class="" data-toggle="collapse" data-parent="#accordion"
+                                                   aria-expanded="true" href="#calcLastJob"
+                                                   aria-controls="nodeBasicInfo">
+                                                    Last Job Information
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div id="calcLastJob" class="panel-collapse collapse in" role="tabpanel"
+                                             aria-labelledby="nodeBasicInfoContainer">
+                                            <div class="panel-body">
+                                                <div style="overflow-x: auto;">
+                                                    <div class="attribute-bottom-margin"
+                                                         ng-repeat="(key, val) in lastjob track by $index">
+                                                        <a href="#"
+                                                           class="btn btn-primary btn-sm btn-as-label disabled">{{key
+                                                            | replaceUnderscoreAndCapitalize}}</a>
+                                                        <span class="attribute-value"
+                                                              ng-if="key != 'detailedJobinfo'">{{val}}</span>
+                                                        <div class="node-window-container"
+                                                             ng-if="key == 'detailedJobinfo'">
+                                                            <pre class="pre-block">{{val}}</pre>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <div ng-include="'views/explore/nodedetails/provenance.html'"></div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,70 @@
+<div class="section-submenu-container fixed-width-page">
+    <div class="page-header">
+        <h3>Explore the full provenance</h3>
+        <div class="page-help">
+            <a class="btn btn-primary btn-sm" target="_blank" ui-sref="main.explore.help">Add EXPLORE section</a>
+        </div>
+    </div>
+    <div class="page-description">
+        <span>
+            An interactive browser for exploring AiiDA provenance graphs uploaded to the Materials Cloud Archive.
+        </span>
+    </div>
+    <div class="submenu-holder">
+
+        <div class="submenu-entry" style="background-color: rgba(191, 186, 186, 0.5)">
+            <div class="submenu-icon overlayed-image-div" style="height: 80px;">
+                <a ui-sref="main.serverconnect">
+                    <img src="images/aiida-logo-128.png" class="main-image">
+                </a>
+            </div>
+            <div class="submenu-description">
+                <a ui-sref="main.explore.dashboard({selectedProfile:'ownrestapi'})">
+                    <h4 class="submenu-title">Browse your own AiiDA database</h4>
+                </a>
+                <span><b>Description:</b> 
+                    Use the REST API built into AiiDA to connect to your own AiiDA database.
+                    Your data stays inside your browser and is not transmitted to Materials Cloud.</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <!--
+         Rules to add new section:
+            - always add new section at the top
+            - only first letter of the title should be capital and all others should be in small letters.
+              e.g. Automated high-throughput wannierisation
+            - if more than 1 authors are present, use & before the last author
+              e.g. Benjamin A. Helfrecht, Rose K. Cersonsky, Guillaume Fraux & Michele Ceriotti
+            - make sure that all the html tags are closed correctly
+         -->
+
+        <div class="submenu-entry archive-doicitation" ng-repeat="(profile, profileInfo) in menuProfiles">
+            <div class="submenu-icon overlayed-image-div" ng-class="{'default-cursor': profileInfo.LOGO === undefined}">
+                <a ng-if="profileInfo.LOGO !== undefined" ui-sref="main.explore.dashboard({selectedProfile:'{{profile}}'})">
+                    <img src="{{ logoUrl }}/{{ profileInfo.LOGO }}" class="main-image">
+                    <div class="circular-div">
+                        <img src="images/aiida-logo-128.png" class="overlayed-image">
+                    </div>
+                </a>
+            </div>
+            <div class="submenu-description">
+                <a ui-sref="main.explore.dashboard({selectedProfile:'{{profile}}'})">
+                    <h4 class="submenu-title" compile="profileInfo.TITLE"></h4>
+                </a>
+                <span class="doi-badge" ng-if="profileInfo.ARCHIVE_ENTRY_DOI !== undefined">
+                    <span style="margin-bottom: 11px;" class="doi-left">DOI</span><a href="https://doi.org/{{ profileInfo.ARCHIVE_ENTRY_DOI }}" class="doi-right">{{ profileInfo.ARCHIVE_ENTRY_DOI }}</a>
+                </span>
+                <div style="margin-bottom: 4px;" ng-if="profileInfo.AUTHORS !== undefined">
+                    <span style="display: inline"><b>Authors:</b></span>
+                    <span style="display: inline" compile="profileInfo.AUTHORS"></span>
+                </div>
+                <div ng-if="profileInfo.DESCRIPTION !== undefined">
+                    <span style="display: inline"><b>Description: </b></span>
+                    <span style="display: inline" compile="profileInfo.DESCRIPTION"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

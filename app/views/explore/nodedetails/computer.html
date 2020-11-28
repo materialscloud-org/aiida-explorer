@@ -1,0 +1,80 @@
+<div ng-controller="ComputerDetailsCtrl">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+
+
+                <div class="panel-group">
+                    <div class="panel panel-primary panel-primary-custom">
+                        <div class="panel-heading">{{nodeDisplayType}}</div>
+                        <div class="panel-body">
+                            <div ng-show="nodeDataLoading" class="spinner-div">
+                                <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                            </div>
+                            <div ng-hide="nodeDataLoading">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="panel panel-default panel-custom">
+                                            <div class="panel-info">
+                                                <div class="panel-title" role="tab" id="nodeBasicInfoContainer">
+                                                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#nodeBasicInfo" aria-controls="nodeBasicInfo">
+                                                        Basic information
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div id="nodeBasicInfo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="nodeBasicInfoContainer">
+                                                <div class="panel-body">
+                                                    <div style="overflow-x: auto;">
+                                                        <div class="attribute-bottom-margin" ng-repeat="(key, val) in defaultAttributes" ng-if="val.display === true">
+
+                                                            <a href="#" class="btn btn-primary btn-sm btn-as-label disabled">{{val.displayName | replaceUnderscoreAndCapitalize}}</a>
+                                                            <md-tooltip class="tooltip-multiline">
+                                                                {{val.hoverText}}
+                                                            </md-tooltip>
+                                                            <a ng-if="key === 'computer_name'" ng-click="GoToNodeDetails(defaultAttributes.dbcomputer_id.value,'COMPUTER')">
+                                                                <span class="attribute-value attribute-href">{{val.value | replaceUnderscoreAndCapitalize}}</span>
+                                                            </a>
+                                                            <span ng-if="key !== 'computer_name'" class="attribute-value">{{val.value | replaceUnderscoreAndCapitalize}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-6">
+
+                                        <div class="panel panel-default panel-custom">
+                                            <div class="panel-info">
+                                                <div class="panel-title" role="tab" id="computerMetadataContainer">
+                                                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#computerMetadata" aria-controls="nodeBasicInfo">
+                                                        Node Metadata
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div id="computerMetadata" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="nodeBasicInfoContainer">
+                                                <div class="panel-body">
+                                                    <div style="overflow-x: auto;">
+                                                        <div class="attribute-bottom-margin" ng-repeat="(key, val) in nodeAttributes">
+                                                            <a href="#" class="btn btn-primary btn-sm btn-as-label disabled">{{key | replaceUnderscoreAndCapitalize}}</a>
+                                                            <span class="attribute-value">{{val}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</div>

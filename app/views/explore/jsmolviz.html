@@ -1,0 +1,107 @@
+<div class="jsmol-structure-visualizer">
+    <!------ 2D structure ------->
+    <div class="shadow-box-help">
+        <p><em>Drag to rotate, scroll to zoom, right-click for other</em></p>
+    </div>
+    <div class="shadow-box-help">
+        <em style="margin-right: 8px;">Download structure: </em>
+        <div style="display: inline-block;">
+            <div class="dropup">
+                <button class="btn btn-primary btn-small dropdown-toggle" type="button"
+                        data-toggle="dropdown" style="padding: 2px 4px; font-size: 14px;">
+                    <span class="glyphicon glyphicon-download-alt"></span></button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="opt in downloadOptions">
+                        <a href="{{opt.link}}" target="_blank">{{opt.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="shadow-box">
+        <div class="plot-diagram">
+            <div class="structure2d-container structure-container" id="{{parentDivId}}">
+                <div ng-show="structureVisDataLoading" class="spinner-div">
+                    <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                </div>
+                <div ng-hide="structureVisDataLoading">
+                    <div id="{{divId}}" bind-html-compile="structureViewerHtml" ng-dblclick="toggleStrVisInteraction();"></div>
+                    <div id="str-overlay" class="overlay-div" ng-dblclick="toggleStrVisInteraction();">
+                        <span>Double-click to toggle interactions on and off
+                        <br>
+                        <small>(This feature is not available on iPad and iPhone)</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jsmol-options">
+        <div class="option-section" style="display:flex;">
+            <form>
+                <h4 class="inline-header">Supercell:</h4>
+                <input id="nx2d" ng-model="jsmolVis2d.nx" type="number" name="quantity" class="option-input" min="1" max= "10">
+                <input id="ny2d" ng-model="jsmolVis2d.ny" type="number" name="quantity" class="option-input" min="1" max= "10">
+                <input id="nz2d" ng-model="jsmolVis2d.nz" type="number" name="quantity" class="option-input" min="1" max= "10">
+                <button id="supercell2d" type="button" ng-click="jsmolSupercell(jsmolVis2d, selectedAxes)">update</button>
+                <button id="reset2d" type="button" ng-click="jsmoldefaultcell(jsmolVis2d, selectedAxes)">reset {{supercell[0]}}x{{supercell[1]}}x{{supercell[2]}} cell</button>
+            </form>
+        </div>
+
+        <div class="option-section">
+            <h4 class="inline-header">Camera:</h4>
+            <button id="centerX2d" ng-click="centerXaxis(jsmolVis2d)">x</button>
+            <button id="centerY2d" ng-click="centerYaxis(jsmolVis2d)">y</button>
+            <button id="centerZ2d" ng-click="centerZaxis(jsmolVis2d)">z</button>
+        </div>
+
+        <div class="option-section">
+            <h4 class="inline-header">Axes:</h4>
+            <select id="axesMenu2d" ng-model="selectedAxes" ng-options="x as x.label for x in jsmolAxes" ng-change="jsmolDrawAxes(jsmolVis2d, selectedAxes);">
+            </select>
+        </div>
+        <div class="option-section">
+            <div class="row">
+                <div class="checkbox-option" id="bonds2d">
+                    <label>
+                        <md-tooltip class="tooltip-multiline">
+                            {{bondsTooltip}}
+                        </md-tooltip>
+                        <input style='margin-right:4px' type="checkbox" ng-model="jsmolVis2d.bonds" ng-change="showBonds(jsmolVis2d)">bonds
+                    </label>
+                </div>
+                <div class="checkbox-option" id="labels2d">
+                    <label>
+                        <md-tooltip class="tooltip-multiline">
+                            {{labelsTooltip}}
+                        </md-tooltip>
+                        <input style='margin-right:4px' type="checkbox" ng-model="jsmolVis2d.labels" ng-change="showLabels(jsmolVis2d)">atom labels
+                    </label>
+                </div>
+                <div class="checkbox-option" id="packed2d">
+                    <label>
+                        <md-tooltip class="tooltip-multiline">
+                            {{packedTooltip}}
+                        </md-tooltip>
+                        <input style='margin-right:4px' type="checkbox" ng-model="jsmolVis2d.packed" ng-change="showPacked(jsmolVis2d, selectedAxes)">packed cell
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="checkbox-option" id="sphere2d">
+                    <label>
+                        <md-tooltip class="tooltip-multiline">
+                            {{spheresTooltip}}
+                        </md-tooltip>
+                        <input style='margin-right:4px' type="checkbox" ng-model="jsmolVis2d.spheres" ng-change="showSpheres(jsmolVis2d)">space-filling
+                    </label>
+                </div>
+                <div class="checkbox-option" id="spin2d">
+                    <label><input style='margin-right:4px' type="checkbox" ng-model="jsmolVis2d.rotation" ng-change="toggleRotation(jsmolVis2d)">rotation</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

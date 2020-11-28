@@ -1,0 +1,60 @@
+
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+
+        <div class="panel-group">
+            <div class="panel panel-primary panel-primary-custom">
+                <div class="panel-heading">{{nodeDisplayType}}</div>
+                <div class="panel-body">
+                    <div ng-show="nodeDataLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div ng-hide="nodeDataLoading">
+
+                        <p><a href="#"
+                              class="btn btn-primary btn-sm btn-as-label disabled">
+                            Label
+                        </a> {{defaultAttributes.label.value}}
+                        </p>
+
+                        <p><a href="#"
+                              class="btn btn-primary btn-sm btn-as-label disabled">
+                            Input plugin
+                        </a> {{nodeAttributes.input_plugin}}
+                        </p>
+
+                        <p><a href="#"
+                              class="btn btn-primary btn-sm btn-as-label disabled">
+                            Remote exec path
+                        </a> {{nodeAttributes.remote_exec_path}}
+                        </p>
+
+                        <p><a href="#"
+                              class="btn btn-primary btn-sm btn-as-label disabled">
+                            Prepend text:
+                        </a> {{nodeAttributes.prepend_text}}
+                        </p>
+
+                        <p><a href="#"
+                              class="btn btn-primary btn-sm btn-as-label disabled">
+                            Is local
+                        </a> {{nodeAttributes.is_local}}
+                        </p>
+
+                        <p><a href="#"
+                              class="btn btn-primary btn-sm btn-as-label disabled">
+                            Hidden
+                        </a> {{nodeAttributes.hidden}}
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-4">
+        <div ng-include="'views/explore/nodedetails/provenance.html'"></div>
+    </div>
+</div>

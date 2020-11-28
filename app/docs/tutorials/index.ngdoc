@@ -1,0 +1,106 @@
+@ngdoc overview
+@name Tutorial
+@description
+
+Materials Cloud : The MARVEL Online Platform
+=============================================
+
+The goal of Materials Cloud is online platform that provides the MARVEL community and the scientific community at large the tools to deal most efficiently with the complexity needed and empowered by computational science, including the automation of high-throughput simulations on remote resources. 
+
+## Technologies
+Materials Cloud web portal is developed using:
+
+* AngularJS
+* Bootstrap 3
+* SaSS
+* Bower, Grunt, Karma
+* UI Widget Toolkit: Vis.js, Kendo UI, Highchart, ChemDoodleWeb 
+
+## Development Setup
+
+Here are some brief instructions for setting the development environment for Materials Cloud:
+
+### Ubuntu 14.04
+
+Install nodejs and nam:
+
+```bash
+sudo apt-get install nodejs npm
+```
+
+> **Note:** If you get errors like **"E: Unable to correct problems, you have held broken packages**", install the packages from source distribution. 
+
+Install ruby gems for SaSS
+```bash
+sudo gem install sass bundler
+```
+
+Install yo, bower, grunt
+```bash
+sudo npm install --global yo bower grunt-cli
+```
+
+> **Note.** If you get an error like:
+
+```bash
+sh: 1: node: not found
+npm WARN This failure might be due to the use of legacy binary "node"
+npm WARN For further explanations, please read /usr/share/doc/nodejs/README.De"**
+```
+
+, install nodejs-legacy:
+
+```bash
+sudo apt-get install nodejs-legacy
+```
+
+Install angular using npm
+```bash
+sudo npm install --global generator-angular@0.11.1
+```
+
+### OSX
+
+Download and Install node and npm from OSX [installer](https://nodejs.org/en/download/)
+
+Update npm
+```bash
+sudo npm install -g npm
+```
+
+Install grunt-cli, bower, yo, generator-karma, generator-angular:
+```bash
+sudo npm install -g grunt-cli bower yo generator-karma generator-angular
+```
+
+Install ruby gems for SaSS
+```bash
+sudo gem install sass bundler
+```
+
+## Building 
+NPM, Grunt and Bower toolchain is used in order to automate the build process of Materials Cloud web portal. Assuming these tools are already installed, one can build the **distributable** package using:
+```bash
+git clone git@bitbucket.org:USERNAME/materials_cloud.git
+cd materials_cloud
+sudo bundle install
+npm install && bower install
+grunt build
+```
+This will build the **dist** folder inside the materials_cloud directory which can be deployed in the server.
+
+## Deployment
+
+Detailed instructions about deploying Materials Cloud with automated Docker image is provided [here](https://bitbucket.org/waychal/materials_cloud_docker).
+For development or testing purpose, one can launch the portal using **grunt** as:
+```bash
+cd materials_cloud
+grunt serve
+``` 
+
+If you have received the **distribution** folder, you can run simple python web server as:
+```bash
+cd materials_cloud/dist
+python -m SimpleHTTPServer
+```
+This will start simple http server from the directory which can be accessible at [http://localhost:8000](http://localhost:8000)

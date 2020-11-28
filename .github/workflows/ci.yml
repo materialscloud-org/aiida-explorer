@@ -1,0 +1,55 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-18.04
+    timeout-minutes: 5
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install npm dependencies
+      run: npm install
+
+    - name: Install bower dependencies
+      run: |
+        npm install -g bower
+        bower install
+  
+    - name: build
+      run: grunt build
+
+    - name: upload dist/ folder as artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: frontend-explore
+        path: dist/
+
+#  test:
+#
+#    runs-on: ubuntu-18.04
+#    timeout-minutes: 5
+#
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Use Node.js
+#      uses: actions/setup-node@v1
+#      with:
+#        node-version: '12.x'
+#    - name: Install npm dependencies
+#      run: npm install
+#
+#    - name: Install bower dependencies
+#      run: |
+#        npm install -g bower
+#        bower install
+#  
+#    - name: build
+#      run: grunt test

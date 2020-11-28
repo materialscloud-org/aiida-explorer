@@ -1,0 +1,85 @@
+<script src="scripts/external/chart.js"></script>
+<script src="scripts/external/tinycolor.min.js"></script>
+<script src="scripts/external/hammer.min.js"></script>
+<script src="scripts/external/chartjs-plugin-zoom.min.js"></script>
+<script src="scripts/external/mcloud-bands-widget.min.js"></script>
+
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+        <div class="panel-group">
+            <div class="panel panel-primary panel-primary-custom">
+                <div class="panel-heading">{{nodeDisplayType}}</div>
+                <div class="panel-body">
+                    <div ng-show="nodeDataLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div ng-hide="nodeDataLoading">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12"
+                                 ng-if="defaultAttributes.label.value.length > 0">
+                                <p><b>Label:</b> {{defaultAttributes.label.value}}</p>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-sm-12 col-md-12">
+                                <div ng-controller="BandDetailsCtrl">
+
+                                    <!-- Band data -->
+                                    <div id="band-container" style="overflow-x: auto;" class="info-container">
+                                        <div id="band-metadata">
+                                            <div class="add-max-width" style="max-width: 800px;">
+                                                <div ng-show="bandVisDataLoading" class="spinner-div">
+                                                    <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                                                </div>
+
+                                                <div ng-hide="bandVisDataLoading">
+                                                    <div>
+                                                        <canvas id="band" style="height: 350px;">
+                                                        </canvas>
+                                                    </div>
+                                                    <div>
+                                                        <p class="input-group input-group-div">
+                                                            <span class="input-group-addon">Edit the path: </span>
+                                                            <input id="bandPathTextBox" class="input-group form-control input-path"
+                                                                   autocomplete="off" ng-keyup="changeBandPath()">
+                                                        </p>
+
+                                                        <div class="btn-group custom-btn-control" role="group" aria-label="zoom-pan-mode">
+                                                            <button type="button" class="btn btn-primary"
+                                                                    id="bandZoom"
+                                                                    ng-click="dragToZoom()">
+                                                                Drag (or pinch) to zoom
+                                                            </button>
+                                                            <button type="button" class="btn btn-default"
+                                                                    id="bandPan"
+                                                                    ng-click="dragToPan()">
+                                                                Drag to pan
+                                                            </button>
+                                                        </div>
+                                                        <button type="button" class="btn btn-primary btn-md custom-btn-control" title="Reset zoom"
+                                                                ng-click="resetZoomPan()">
+                                                            Reset zoom/pan
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary btn-md custom-btn-control" title="Reset to default path"
+                                                                ng-click="resetDefaultBandPath()">
+                                                            Reset default path
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-4">
+        <div ng-include="'views/explore/nodedetails/provenance.html'"></div>
+    </div>
+</div>

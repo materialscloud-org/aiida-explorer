@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <div class="panel panel-default panel-custom">
+            <div class="panel-info">
+                <div class="panel-title" role="tab">
+                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#mesh">
+                        Kpoints mesh and offset
+                    </a>
+                </div>
+            </div>
+            <div id="mesh" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <div class="node-window-container">
+                        <table class="table attribute-table numbers-font-family">
+                            <thead>
+                            <tr>
+                                <th ng-repeat="hname in ['', 'b<sub>1</sub>', 'b<sub>2</sub>', 'b<sub>3</sub>']"
+                                    ng-bind-html="hname">{{hname}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="(key,value) in meshOffset track by $index">
+                                <th scope="row">{{key}}</th>
+                                <td ng-repeat="v in value track by $index">{{v}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6" ng-if="has_cell === false">
+        <div class="panel panel-default panel-custom">
+            <div class="panel-info">
+                <div class="panel-title" role="tab">
+                    <a class="" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="#kpointsScaledUnit">
+                        Kpoints (scaled units)
+                    </a>
+                </div>
+            </div>
+            <div id="kpointsScaledUnit" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <div class="node-window-container">
+                        <table class="table attribute-table numbers-font-family">
+                            <thead>
+                            <tr>
+                                <th ng-repeat="hname in ['K<sub>x</sub>', 'K<sub>y</sub>', 'K<sub>z</sub>']"
+                                    ng-bind-html="hname">{{hname}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="kpt in kpointsJson.explicit_kpoints_rel track by $index">
+                                <td ng-repeat="value in kpt track by $index">{{value.toFixed(10)}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

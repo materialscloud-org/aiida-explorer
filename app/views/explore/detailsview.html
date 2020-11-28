@@ -1,0 +1,33 @@
+<div class="uuid-input-container">
+    <div style="margin-top: 35px; margin-bottom: 25px;">
+
+        <input type="text" name="nodeUuid" ng-model="nodeUuid" value="nodeUuid"
+               placeholder="Enter here the node UUID to inspect a node, or use the grid for selection"
+               class="input-group" style="width: 500px; display: inline-block; height: 40px; margin-right: 5px;">
+
+        <a ui-sref="main.explore.dashboard.details.viewnode({nodeId: nodeUuid, nodeType: 'NODE'})">
+            <button type="button" class="btn btn-primary btn-md">Go</button>
+        </a>
+    </div>
+</div>
+
+<div class="node-basic-details" ng-show="displayBasicDetails == true">
+    <div ng-show="displayBasicNodeDetails == true">
+        <div class="basic-detail-entry">UUID: {{defaultAttributes.uuid.hoverText}}</div>
+        <div ng-if="selectedProfileInfo.REST_API_MAJOR_VERSION !== 'v4'" class="basic-detail-entry">Type: {{defaultAttributes[typeColumnName].hoverText}}</div>
+        <div ng-if="selectedProfileInfo.REST_API_MAJOR_VERSION === 'v4'" class="basic-detail-entry">Type: {{defaultAttributes[typeColumnName].value}}</div>
+        <div class="basic-detail-entry">Created {{defaultAttributes.ctime.value}}</div>
+        <div class="basic-detail-entry">Modified {{defaultAttributes.mtime.value}}</div>
+        <div class="basic-detail-entry">Creator: {{defaultAttributes.user.value}}</div>
+        <div class="basic-detail-entry">
+            <a href="mailto:{{defaultAttributes.user_email.value}}?subject=Materials%20Cloud%20uuid%20{{defaultAttributes.uuid.hoverText}}">{{defaultAttributes.user_email.value}}</a>
+        </div>
+    </div>
+    <div ng-show="displayBasicNodeDetails == false" style="margin-top: 60px;">
+        <div class="basic-detail-entry">UUID: {{defaultAttributes.uuid.hoverText}}</div>
+    </div>
+</div>
+
+<div ui-view="">
+
+</div>

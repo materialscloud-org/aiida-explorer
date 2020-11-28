@@ -1,0 +1,4 @@
+// no blue background color for selected items
+.jstree-default .jstree-wholerow-clicked {
+    background: unset;
+}

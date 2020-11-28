@@ -1,0 +1,36 @@
+<div ng-controller="WorkchainDetailsCtrl">
+    <div class="row">
+        <div class="col-sm-12 col-md-8">
+            <div class="row">
+
+                <div class="panel-group">
+                    <div class="panel panel-primary panel-primary-custom">
+                        <div class="panel-heading">{{nodeDisplayType}}</div>
+                        <div class="panel-body">
+                            <div ng-show="nodeDataLoading" class="spinner-div">
+                                <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                            </div>
+                            <div ng-hide="nodeDataLoading">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <p ng-repeat="(idx, info) in mainMetadata"
+                                           ng-if="nodeAttributes[info.key] != undefined">
+                                            <a href="#"
+                                               class="btn btn-primary btn-sm btn-as-label disabled">
+                                                {{info.display_name}}
+                                            </a> {{nodeAttributes[info.key]}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <div ng-include="'views/explore/nodedetails/provenance.html'"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+
+        <div class="panel-group">
+            <div class="panel panel-primary panel-primary-custom">
+                <div class="panel-heading">{{nodeDisplayType}}</div>
+                <div class="panel-body">
+                    <div ng-show="nodeDataLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div ng-hide="nodeDataLoading">
+                        <div ng-controller="CifDetailsCtrl">
+                            <div class="row">
+                                <div class="col-sm-10 col-md-10">
+                                    <div class="">
+                                        <div ng-show="structureVisDataLoading" class="spinner-div">
+                                            <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                                        </div>
+                                        <div ng-hide="structureVisDataLoading">
+                                            <div jsmol-viz
+                                                 crystal-xsf = "crystalCif"
+                                                 structure-viewer="structureViewer"
+                                                 jsmol-applet-name="jsmolAppletName"
+                                                 supercell="supercell"
+                                                 div-id="crystal2d"
+                                                 parent-div-id="structure2d-content"
+                                                 toggle-str-vis-interaction="toggleCifVisInteraction()"
+                                                 download-options="downloadOptions"
+                                                 selected-axes-idx="selectedAxesIdx">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-4">
+        <div ng-include="'views/explore/nodedetails/provenance.html'"></div>
+    </div>
+</div>
+
+
+<!--<link rel="stylesheet" href="styles/css/external/ChemDoodleWeb.css" />
+<script src="scripts/external/ChemDoodleWeb.min.js"></script>-->
+<script src="scripts/external/jsmol/JSmol.min.nojq.js"></script>

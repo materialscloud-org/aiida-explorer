@@ -1,0 +1,88 @@
+// flat borders
+div.k-window {
+  border-radius: 1px !important;
+}
+
+.k-panel>.k-item>.k-link, .k-panelbar>.k-item>.k-link {
+  font-size: 15px;
+}
+
+span.k-link, span.k-header, a.k-link {
+  line-height: 1.5em !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  font-size: 15px !important;
+}
+
+div.k-window, div.k-window.k-state-focused {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-color: #dedede;
+  border-radius: 4px !important;
+  position: relative !important;
+}
+
+div.k-header {
+  background-color: #3560A0; //#4a8ad2;
+  border-color: #3560A0; //#4a8ad2;
+}
+
+.k-window-titlebar {
+  font-size: 1.0em !important;
+}
+
+.k-window-title {
+  text-align: left;
+  cursor: pointer !important;
+}
+
+div.borderless-window div.k-header, div.borderless-window div.k-window {
+  border-color: white !important;
+}
+
+div.k-window-content {
+  overflow: hidden !important;
+}
+
+.k-panelbar .k-header {
+  background-color: #3560A0;
+  color: white !important;
+  border-color: #3560A0;
+}
+
+ul.k-panelbar .k-state-hover
+{
+    background-color: #7ba7e8;
+}
+
+ul.k-panel .k-state-selected {
+  color: red;
+  background-color: white;
+  box-shadow: none;
+}
+
+ul.k-panelbar,
+ul.k-panelbar .k-group,
+ul.k-panelbar .k-content,
+ul.k-panelbar .k-link
+{
+  border-color: #3560A0 !important;
+}
+
+.k-grid-header .k-header
+{
+       background-color: red;
+}
+
+.k-content {
+  border: 1px solid #3560A0 !important;
+}
+
+.k-treeview .k-in {
+  padding: 0px !important;
+}
+
+span.k-state-hover:hover {
+  background-color: transparent;
+}

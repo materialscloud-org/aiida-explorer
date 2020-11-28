@@ -1,0 +1,72 @@
+
+<div data-ng-controller="MainCtrl">
+    <!-- Application header -->
+    <div class="mcloud-header header" id="mcloudHeader">
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target=".header-collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home" ng-click="changePath('home')">
+                        <img src="images/mcloud_logo.png">
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse header-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/learn" ng-click="changePath('learn')">LEARN</a></li>
+                        <li><a href="/work" ng-click="changePath('work')">WORK</a></li>
+                        <li><a href="/discover" ng-click="changePath('discover')">DISCOVER</a></li>
+                        <li class="active"><a ui-sref="main.explore">EXPLORE</a></li>
+                        <li><a href="/archive" ng-click="changePath('archive')">ARCHIVE</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu more-menu">
+                                <li><a href="/policies" ng-click="changePath('policies')">Policies</a></li>
+                                <li><a href="/dmp" ng-click="changePath('dmp')">Data Management Plan</a></li>
+                                <li><a href="/termssummary" ng-click="changePath('termssummary')">Terms of Use</a></li>
+                                <li><a href="/infrastructure" ng-click="changePath('infrastructure')">Infrastructure</a></li>
+                                <li><a href="/team" ng-click="changePath('team')">Team &amp; Contact</a></li>
+                                <li><a href="/home#partners" ng-click="changePath('home#partners')">Partners</a></li>
+				<li ng-class="{ active: isActive('/connect')}"><a ui-sref="main.serverconnect">Connect your REST API</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div> <!-- End of header -->
+    </div>
+
+    <!-- Application body -->
+    <div class="mcloud-wrapper">
+
+        <div class="mcloud-status-bar" data-ng-controller="MessageCtrl">
+            <div id="mcloud-alert" ng-class="message_type" class="alert" ng-cloak>{{message_text}}</div>
+        </div>
+        <div class="mcloud-message-container">
+
+        </div>
+        <!-- Application body -->
+        <div class="mcloud-container">
+            <div ui-view="">
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Application footer -->
+    <div class="mcloud-footer">
+        <div class="footer-content">
+        </div>
+    </div>
+</div>
+

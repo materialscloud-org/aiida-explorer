@@ -1,0 +1,59 @@
+<div class="mcloud-page-content-min-height" ng-controller="StatisticsViewCtrl">
+
+    <div class="statistics-filters">
+        <h3 class="title">Select user:</h3>
+        <div class="dropdown-select">
+            <select ng-model="selectedUser" ng-options="user.displayName for user in users" ng-change="updateStatistics()">
+            </select>
+        </div>
+    </div>
+
+    <div id="db_node_statistics" class="node-statistics" ng-show="isDisplayPlots">
+        <div class="row">
+            <div ng-show="displayCalculationsChart" class="col-md-6 nopadding">
+                <div class="statistics-diagram">
+                    <div ng-show="dataLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div id="db_calculations_piechart" ng-hide="dataLoading"></div>
+                </div>
+            </div>
+            <div ng-show="displayWorkflowsChart" class="col-md-6 nopadding">
+                <div class="statistics-diagram">
+                    <div ng-show="dataLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div id="db_workflows_piechart" ng-hide="dataLoading"></div>
+                </div>
+            </div>
+            <div ng-show="displayDataChart" class="col-md-6 nopadding">
+                <div class="statistics-diagram">
+                    <div ng-show="dataLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div id="db_data_piechart" ng-hide="dataLoading"></div>
+                </div>
+            </div>
+            <div ng-show="displayNodeChart" class="col-md-5 nopadding">
+                <div class="statistics-diagram">
+                    <div ng-show="dataLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div id="db_node_piechart" ng-hide="dataLoading"></div>
+                </div>
+            </div>
+            <div ng-class="{'col-md-6': !displayNodeChart, 'col-md-7': displayNodeChart}" class="nopadding">
+                <div class="statistics-diagram">
+                    <div ng-show="timelineLoading" class="spinner-div">
+                        <img src="images/mcloud_spinner.svg" class="spinner-icon">
+                    </div>
+                    <div id="db_node_timeline" ng-hide="timelineLoading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-hide="isDisplayPlots" class="no-statistics-container">
+        No data available for selected user: <h4>{{selectedUser.displayName}}</h4>
+    </div>
+</div>

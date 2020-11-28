@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="($title || 'Materials Cloud')">Materials Cloud</title>
+    <meta name="description" content="Materials Cloud is built to enable the seamless sharing and dissemination of
+    resources in computational materials science, encompassing educational material, interactive tools,
+    simulation services, and curated and raw data.">
+    <meta name="viewport" content="width=device-width">
+    <base href="/">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+
+    <!-- build:css styles/vendor1.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/angular-motion/dist/angular-motion.css" />
+    <link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="../bower_components/json-formatter/dist/json-formatter.css" />
+    <link rel="stylesheet" href="../bower_components/vis/dist/vis.css" />
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="../bower_components/material-design-lite/material.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="styles/css/external/kendo/kendo.common.core.min.css">
+    <link rel="stylesheet" href="styles/css/external/kendo/kendo.material.min.css"/>
+    <link rel="stylesheet" href="styles/css/external/kendo/kendo.common-material.min.css"/>
+    <link rel="stylesheet" href="styles/css/external/ng-table.min.css">
+
+    <link rel="stylesheet" href="styles/css/mcloud_theme.min.css">
+    <!-- build:css styles/theme.css -->
+    <link rel="stylesheet" href="styles/css/theme.css">
+    <!-- endbuild -->
+
+</head>
+
+<body>
+
+<div class="splash" ng-cloak="">
+    <div class="mcloud-booting-message">
+        <div class="mcloud-boot-spinner"></div>
+    </div>
+</div>
+
+<div ng-cloak="">
+
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Application body -->
+    <div ui-view="">
+
+    </div>
+    
+    <!-- Add script Plausible and pass domain name as parameter -->
+    <script type="text/javascript">
+        var header = document.getElementsByTagName("head")[0];
+        var plausible = document.createElement("script");
+        var domain_name = window.location.hostname;
+
+        plausible.async = "";
+        plausible.defer = "";
+        plausible.dataset["domain"] = domain_name;
+        plausible.src = "https://plausible.io/js/plausible.js";
+        header.appendChild(plausible);
+    </script>
+    <!-- end Plausible analytics -->
+    
+    <script src="scripts/external/kendo/jquery.min.js"></script>
+
+    <!-- build:js scripts/vendor1.js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor2.js -->
+    <script src="../bower_components/json-formatter/dist/json-formatter.js"></script>
+    <script src="../bower_components/angular-breadcrumb/release/angular-breadcrumb.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/angular-material/angular-material.js"></script>
+    <script src="../bower_components/material-design-lite/material.min.js"></script>
+    <script src="../bower_components/angular-ui-router-title/angular-ui-router-title.js"></script>
+    <script src="../bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="../bower_components/angular-validation/dist/angular-validation.min.js"></script>
+    <script src="../bower_components/angular-validation/dist/angular-validation-rule.min.js"></script>
+    <!-- endbuild -->
+
+    <script src="scripts/external/kendo/kendo.all.min.js"></script>
+    <script src="scripts/external/ng-table.min.js"></script>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/message.js"></script>
+
+    <script src="scripts/services/authservice.js"></script>
+    <script src="scripts/services/utils.js"></script>
+    <script src="scripts/services/mcloudconfig.js"></script>
+    <script src="scripts/services/storageservice.js"></script>
+    <script src="scripts/services/messageservice.js"></script>
+
+
+</div>
+</body>
+
+</html>

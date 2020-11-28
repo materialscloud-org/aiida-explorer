@@ -1,0 +1,30 @@
+<div class="custom-table-container">
+    <table ng-table-dynamic="tableParams with columns"
+           class="table table-condensed table-bordered table-striped ng-table-custom">
+        <tr ng-repeat="dnode in $data">
+            <td ng-repeat="col in $columns">
+                <div ng-if="col.dataType === 'command'">
+                    <button class="btn btn-default btn-sm ng-table-custom-button" ng-click="displayNodeDetails(dnode)">
+                        <span>Details</span>
+                    </button>
+                </div>
+                <div ng-if="col.dataType !== 'command'" ng-switch="col.field">
+                    <div ng-switch-when="attributes.process_state">
+                        <span ng-show="dnode.attributes.exit_status===0" title="Process finished successfully" ng-class="isStateColumn" style="cursor:help;">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                        <span ng-show="dnode.attributes.exit_status!==0 && dnode.attributes.exit_message===''" title="Process failed without a specific exit message" ng-class="isStateColumn" style="cursor:help;">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                        <span ng-show="dnode.attributes.process_state==='finished' && dnode.attributes.exit_status!==0 && dnode.attributes.exit_message!==''" title='Exit message: "{{dnode.attributes.exit_message}}"' ng-class="isStateColumn" style="cursor:help;">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                        <span ng-show="dnode.attributes.process_state==='excepted'" title="{{dnode.attributes.exception}}" ng-class="isStateColumn" style="cursor:help;">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                        <span ng-show="dnode.attributes.process_state==='killed'" title="{{dnode.attributes.process_status}}" ng-class="isStateColumn" style="cursor:help;">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                        <span ng-show="dnode.attributes.process_state==='created' || dnode.attributes.process_state==='running' || dnode.attributes.process_state==='waiting' || dnode.attributes.process_state===null" ng-class="isStateColumn">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                    </div>
+                    <span ng-switch-when="creator" ng-class="isStateColumn">{{processColumn(col.field, dnode["user_id"], dnode.attributes)}}</span>
+                    <div ng-switch-when="attributes.process_label">
+                        <span ng-show="dnode.attributes.process_label!==null" title="{{dnode.process_type}}" ng-class="isStateColumn" style="cursor:help;">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                        <span ng-show="dnode.attributes.process_label===null" ng-class="isStateColumn">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                    </div>
+                    <span ng-switch-default ng-class="isStateColumn">{{processColumn(col.field, dnode[col.field], dnode.attributes)}}</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

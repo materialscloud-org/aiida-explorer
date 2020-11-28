@@ -1,0 +1,40 @@
+<div class="details-view-container">
+    <div ng-switch="dataType">
+        <div ng-switch-when="COMPUTER">
+            <div ng-include="'views/explore/nodedetails/computer.html'"></div>
+        </div>
+        <div ng-switch-when="CALCULATION">
+            <div ng-include="'views/explore/nodedetails/process/calcjob.html'"></div>
+        </div>
+        <div ng-switch-when="INLINE">
+            <div ng-include="'views/explore/nodedetails/process/inline.html'"></div>
+        </div>
+        <div ng-switch-when="WORKCHAIN">
+            <div ng-include="'views/explore/nodedetails/process/workchain.html'"></div>
+        </div>
+        <div ng-switch-when="DATA">
+            <div ng-include="'views/explore/nodedetails/data/data.html'"></div>
+        </div>
+        <div ng-switch-when="STRUCTURES">
+            <div ng-include="'views/explore/nodedetails/data/structure.html'"></div>
+        </div>
+        <div ng-switch-when="CIF">
+            <div ng-include="'views/explore/nodedetails/data/cif.html'"></div>
+        </div>
+        <div ng-switch-when="BANDS">
+            <div ng-include="'views/explore/nodedetails/data/band.html'"></div>
+        </div>
+        <div ng-switch-when="UPF">
+            <div ng-include="'views/explore/nodedetails/data/upf.html'"></div>
+        </div>
+        <div ng-switch-when="KPOINTS">
+            <div ng-include="'views/explore/nodedetails/data/kpoint.html'"></div>
+        </div>
+        <div ng-switch-when="CODE">
+            <div ng-include="'views/explore/nodedetails/code.html'"></div>
+        </div>
+        <div ng-switch-when="">
+            <p>{{nodeType}} is not supported!</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="mcloud-page-container" data-ng-controller="ServerconnectCtrl">
+
+    <div class="mcloud-page-content panel panel-default container-fluid" style="text-align: justify">
+
+        <div ncy-breadcrumb></div>
+
+        <div class="row">
+
+            <div class="mainbox col-lg-6 col-md-8 col-sm-8 col-centered" style="max-width: 700px; margin-top: 3px; margin-bottom: 20px;">
+
+                <div class="panel panel-info">
+
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            Connect To Your AiiDA REST API
+                        </div>
+                    </div>
+
+
+                    <div class="panel-body" style="padding-top:30px; background-color: #5995ef">
+                        <form name="connectForm">
+
+                            <div class="input-group">
+                                <input type="url" class="form-control" name="serverendpoint" ng-model="userRestEndPoint" placeholder="Your REST endpoint, for example: http://127.0.0.1:5000/api/v4" required>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default button-border" type="button" ng-click="connectServer()" >Go!</button>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 control">
+                                    <div style="border-top: 0px solid#d8cece; padding-top:10px; font-size:95%; margin-left: -12px;"
+                                         ng-if="displayUserEndPoint.length > 0">
+                                        You are currently connected to <a>{{displayUserEndPoint}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div style="text-align: center; ">
+                            <b>Note</b>: Feature available in Firefox and Google Chrome only.
+                        </div>
+                    </div>
+
+                    <!--<hr>-->
+
+                    <div style="padding: 15px; background-color: #fafbfc;">
+                        <h4 style="font-size: 110%;">Instructions</h4>
+
+                        <h4>Step 1: Running the REST API</h4>
+                        <p>On your local AiiDA computer run on the command line:
+                        </p>
+                        <p class="command-block">
+                            $ verdi restapi
+                        </p>
+                        <p>
+                            This command starts the REST API with the default parameters 
+                            (default AiiDA profile, port 5000 of localhost).
+                            If your version of AiiDA is equal to 1.0.1 or later, its base URL is:
+                        </p>
+                        <p class="command-block">
+                            http://127.0.0.1:5000/api/v4
+                        </p>
+                        <p>
+                            If your version of AiiDA is from 1.0.0b3 to 1.0.0b6, the base URL is:
+                        </p>
+                        <p class="command-block">
+                            http://127.0.0.1:5000/api/v3
+                        </p>
+                        <p>
+                            If your version of AiiDA is previous or equal to 1.0.0b2, the base URL is:
+                        </p>
+                        <p class="command-block">
+                            http://127.0.0.1:5000/api/v2
+                        </p>
+                        <p>
+                            Note that the REST API of the AiiDA 1.0.0 version is not supported; you should upgrade to
+                            1.0.1 or to a later version to use the "Connect to your AiiDA REST API" feature.
+                        </p>
+
+                        <h4>Step 2: Connecting to your REST API</h4>
+                        <p>
+                            Type the base URL in the input box above and click "GO!" to browse your own data
+                            in the Explore section.
+                            To directly connect to your AiiDA REST API you can also pass the <em>base_url</em>
+                            parameter to the url query string, e.g.:
+                        </p>
+                        <p>
+                            <a href="https://dev-www.materialscloud.org/explore/ownrestapi?base_url=http://127.0.0.1:5000/api/v4">
+                                https://dev-www.materialscloud.org/explore/ownrestapi?base_url=http://127.0.0.1:5000/api/v4
+                            </a>
+                        </p>
+                        <p>
+                            Note that if the backend of your AiiDA profile is SQLAlchemy, you might have to reload the page
+                            after the first connection to your REST API in order to correctly load the nodes dashboard.
+                            <br>If you notice other issues please report them
+                            <a href="https://github.com/materialscloud-org/issues">here</a>.
+                        </p>
+                        <p>
+                            <b>Note</b>: all data remains local to your computer and is not transferred to Materials Cloud.
+                        </p>
+                        <p>
+                            For more information on the REST API see the
+                            <a href="https://aiida-core.readthedocs.io/en/latest/restapi/index.html" target="_blank">AiiDA documentation</a>.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
