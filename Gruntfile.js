@@ -189,11 +189,11 @@ module.exports = function (grunt) {
                 constants: {
                     ENV: {
                         name: 'development',
-                        hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
-                        exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v2',
+                        hostAiidaBackend: '<%= yeoman.hostAiidaProductionBackend %>',
+                        exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v4',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
                         profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logoUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
+                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
                     }
                 }
             },
@@ -204,11 +204,11 @@ module.exports = function (grunt) {
                 constants: {
                     ENV: {
                         name: 'production',
-                        hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
+                        hostAiidaBackend: '<%= yeoman.hostAiidaProductionBackend %>',
                         exploreOwnRestEndPoint: '',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
                         profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logoUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
+                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
                     }
                 }
             }
