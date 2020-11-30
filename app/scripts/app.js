@@ -177,7 +177,7 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$provi
                 url: "^/menu",
                 templateUrl: "views/explore/menu.html",
                 controller: function($scope, $stateParams, ENV, PROFILES) {
-                    $scope.logoUrl = ENV['logoUrl'];
+                    $scope.logosUrl = ENV['logosUrl'];
                     $scope.menuProfiles = PROFILES;
                 },
                 ncyBreadcrumb: {

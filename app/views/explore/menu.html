@@ -43,7 +43,7 @@
         <div class="submenu-entry archive-doicitation" ng-repeat="(profile, profileInfo) in menuProfiles">
             <div class="submenu-icon overlayed-image-div" ng-class="{'default-cursor': profileInfo.LOGO === undefined}">
                 <a ng-if="profileInfo.LOGO !== undefined" ui-sref="main.explore.dashboard({selectedProfile:'{{profile}}'})">
-                    <img src="{{ logoUrl }}/{{ profileInfo.LOGO }}" class="main-image">
+                    <img src="{{ logosUrl }}/{{ profileInfo.LOGO }}" class="main-image">
                     <div class="circular-div">
                         <img src="images/aiida-logo-128.png" class="overlayed-image">
                     </div>

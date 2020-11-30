@@ -193,7 +193,7 @@ module.exports = function (grunt) {
                         exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v2',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
                         profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logoUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
+                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
                     }
                 }
             },
@@ -208,7 +208,7 @@ module.exports = function (grunt) {
                         exploreOwnRestEndPoint: '',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
                         profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logoUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
+                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
                     }
                 }
             }
