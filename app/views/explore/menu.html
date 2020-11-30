@@ -51,8 +51,7 @@
             </div>
             <div class="submenu-description">
                 <a ui-sref="main.explore.dashboard({selectedProfile:'{{profile}}'})">
-                    <h4 class="submenu-title" compile="profileInfo.TITLE"></h4>
-                </a>
+                    <h4 class="submenu-title" compile="profileInfo.TITLE"></h4></a>
                 <span class="doi-badge" ng-if="profileInfo.ARCHIVE_ENTRY_DOI !== undefined">
                     <span style="margin-bottom: 11px;" class="doi-left">DOI</span><a href="https://doi.org/{{ profileInfo.ARCHIVE_ENTRY_DOI }}" class="doi-right">{{ profileInfo.ARCHIVE_ENTRY_DOI }}</a>
                 </span>
