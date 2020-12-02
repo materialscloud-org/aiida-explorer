@@ -609,8 +609,7 @@ module.exports = function (grunt) {
                 //"copy:dist_ngdocs",
                 "copy:dist_externalfiles",
                 "copy:dist_files",
-                "copy:dist_scripts",
-                "copy:dist_node_modules"
+                "copy:dist_scripts"
             ]
         },
 
