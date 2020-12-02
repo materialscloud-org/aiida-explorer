@@ -190,7 +190,7 @@ module.exports = function (grunt) {
                     ENV: {
                         name: 'development',
                         hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
-                        exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v2',
+                        exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v4',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
                         profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
                         logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
@@ -341,7 +341,6 @@ module.exports = function (grunt) {
                 src: [
                     "<%= yeoman.dist %>/scripts/controllers/{,*/}*.js",
                     "<%= yeoman.dist %>/scripts/directives/{,*/}*.js",
-                    "<%= yeoman.dist %>/scripts/external/bandstructure.min.js",
                     "<%= yeoman.dist %>/scripts/filters/{,*/}*.js",
                     "<%= yeoman.dist %>/scripts/services/{,*/}*.js",
                     "<%= yeoman.dist %>/scripts/app.js",
@@ -365,7 +364,6 @@ module.exports = function (grunt) {
                     src: [
                         "<%= yeoman.dist %>/scripts/controllers/**/*.js",
                         "<%= yeoman.dist %>/scripts/directives/{,*/}*.js",
-                        "<%= yeoman.dist %>/scripts/external/bandstructure.min.js",
                         "<%= yeoman.dist %>/scripts/filters/{,*/}*.js",
                         "<%= yeoman.dist %>/scripts/services/{,*/}*.js",
                         "<%= yeoman.dist %>/scripts/*.js",
@@ -611,7 +609,8 @@ module.exports = function (grunt) {
                 //"copy:dist_ngdocs",
                 "copy:dist_externalfiles",
                 "copy:dist_files",
-                "copy:dist_scripts"
+                "copy:dist_scripts",
+                "copy:dist_node_modules"
             ]
         },
 
