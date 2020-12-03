@@ -341,6 +341,7 @@ module.exports = function (grunt) {
                 src: [
                     "<%= yeoman.dist %>/scripts/controllers/{,*/}*.js",
                     "<%= yeoman.dist %>/scripts/directives/{,*/}*.js",
+                    "<%= yeoman.dist %>/scripts/external/bandstructure.min.js",
                     "<%= yeoman.dist %>/scripts/filters/{,*/}*.js",
                     "<%= yeoman.dist %>/scripts/services/{,*/}*.js",
                     "<%= yeoman.dist %>/scripts/app.js",
@@ -364,6 +365,7 @@ module.exports = function (grunt) {
                     src: [
                         "<%= yeoman.dist %>/scripts/controllers/**/*.js",
                         "<%= yeoman.dist %>/scripts/directives/{,*/}*.js",
+                        "<%= yeoman.dist %>/scripts/external/bandstructure.min.js",
                         "<%= yeoman.dist %>/scripts/filters/{,*/}*.js",
                         "<%= yeoman.dist %>/scripts/services/{,*/}*.js",
                         "<%= yeoman.dist %>/scripts/*.js",
