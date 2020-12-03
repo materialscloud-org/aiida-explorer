@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/materialscloud-org/aiida-explorer/workflows/Build/badge.svg)](https://github.com/materialscloud-org/aiida-explorer/actions)
+[![Build Status](https://github.com/materialscloud-org/aiida-explorer/workflows/ci/badge.svg)](https://github.com/materialscloud-org/aiida-explorer/actions)
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/materialscloud-org/aiida-explorer/blob/master/LICENSE)
 
 AiiDA provenance explorer
