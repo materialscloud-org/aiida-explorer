@@ -5,7 +5,7 @@
   "display-name": "Materials Cloud",
   "license": "MIT",
   "author": "Materials Cloud team <info@materialscloud.org>",
-  "repository": "https://github.com/materialscloud-org/frontend-explore.git",
+  "repository": "https://github.com/materialscloud-org/aiida-explorer.git",
   "dependencies": {
     "angular": "^1.6.5",
     "bootstrap": "^3.3.4",
