@@ -160,20 +160,6 @@ module.exports = function (grunt) {
             }
         },
 
-        'string-replace': {
-            dist: {
-                files: {
-                    '<%= yeoman.dist %>/index.html': '<%= yeoman.dist %>/index.html'
-                },
-                options: {
-                    replacements: [{
-                        pattern: '<base href="/">',
-                        replacement: '<base href="/explore/">'
-                    }]
-                }
-            }
-        },
-
         ngconstant: {
             // Options for all targets
             options: {
@@ -706,8 +692,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("build", [
-        "localbuild",
-        "string-replace"
+        "localbuild"
     ]);
 
     grunt.registerTask("default", [
