@@ -87,18 +87,18 @@ NPM, Grunt and Bower toolchain is used in order to automate the build process of
 Assuming these tools are already installed, one can build the **distribution** folder using:
 
 ```bash
-git clone git@github.com:materialscloud-org/frontend-explore.git
-cd frontend-explore
+git clone git@github.com:materialscloud-org/aiida-explorer.git
+cd aiida-explorer
 npm install && bower install
 grunt build
 ```
-This will build the **dist** folder inside the frontend-explore which can be deployed on the server.
+This will build the **dist** folder inside the aiida-explorer which can be deployed on the server.
 
 ## Deployment
 
 If you have received the **distribution** folder, you can run simple python web server as:
 ```bash
-cd frontend-explore/dist
+cd aiida-explorer/dist
 python -m http.server
 ```
 This will start simple http server from the directory which can be accessible at [http://localhost:8000](http://localhost:8000)

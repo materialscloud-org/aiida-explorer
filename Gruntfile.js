@@ -165,31 +165,12 @@ module.exports = function (grunt) {
             options: {
                 space: '  ',
                 wrap: '"use strict";\n\n {\%= __ngModule %}',
-                name: 'config'
+                name: 'config',
+                dest: '<%= yeoman.app %>/scripts/config.js'
             },
-            // Environment targets
-            development: {
-                options: {
-                    dest: '<%= yeoman.app %>/scripts/config.js'
-                },
+            dist: {
                 constants: {
                     ENV: {
-                        name: 'development',
-                        hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
-                        exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v4',
-                        commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
-                        profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
-                    }
-                }
-            },
-            production: {
-                options: {
-                    dest: '<%= yeoman.app %>/scripts/config.js'
-                },
-                constants: {
-                    ENV: {
-                        name: 'production',
                         hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
                         exploreOwnRestEndPoint: '',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
@@ -647,7 +628,7 @@ module.exports = function (grunt) {
             "sass",
             "copy:fonts",
             //"copy:externalstyles",
-            "ngconstant:development",
+            "ngconstant",
             //"ngdocs",
             //"wiredep",
             "concurrent:server",
@@ -675,7 +656,7 @@ module.exports = function (grunt) {
     grunt.registerTask("localbuild", [
         "clean:dist",
         "sass",
-        'ngconstant:development',
+        'ngconstant',
         //"wiredep",
         "useminPrepare",
         "concurrent:distprepare",
