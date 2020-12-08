@@ -687,6 +687,10 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("build", [
+        "localbuild"
+    ]);
+
+    grunt.registerTask("build-mc", [
         "localbuild",
         "string-replace"
     ]);
