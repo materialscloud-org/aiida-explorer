@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         dist: "dist",
         hostBackend: "http://localhost",
         hostAiidaProductionBackend: "https://aiida-dev.materialscloud.org",
-        hostAiidaDevelopmentBackend: "https://dev-www.materialscloud.org"
+        hostAiidaDevelopmentBackend: "https://dev-aiida-dev.materialscloud.org"
     };
 
     // Define the configuration for all the tasks
@@ -186,10 +186,10 @@ module.exports = function (grunt) {
                 constants: {
                     ENV: {
                         hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
-                        exploreOwnRestEndPoint: 'https://dev-www.materialscloud.org/api/v2',
-                        commonRestEndPoint: 'https://dev-www.materialscloud.org/mcloud/api/v2',
-                        profilesUrl: 'https://dev-www.materialscloud.org/mcloud/api/v2/explore/profiles',
-                        logosUrl: 'https://dev-www.materialscloud.org/mcloud/api/v2/explore/logos'
+                        exploreOwnRestEndPoint: '',
+                        commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
+                        profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
+                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
                     }
                 }
             }
