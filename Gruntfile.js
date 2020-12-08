@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         dist: "dist",
         hostBackend: "http://localhost",
         hostAiidaProductionBackend: "https://aiida-dev.materialscloud.org",
-        hostAiidaDevelopmentBackend: "https://dev-aiida-dev.materialscloud.org"
+        hostAiidaDevelopmentBackend: "https://dev-www.materialscloud.org"
     };
 
     // Define the configuration for all the tasks
@@ -160,6 +160,20 @@ module.exports = function (grunt) {
             }
         },
 
+        'string-replace': {
+            dist: {
+                files: {
+                    '<%= yeoman.dist %>/index.html': '<%= yeoman.dist %>/index.html'
+                },
+                options: {
+                    replacements: [{
+                        pattern: '<base href="/">',
+                        replacement: '<base href="/explore/">'
+                    }]
+                }
+            }
+        },
+
         ngconstant: {
             // Options for all targets
             options: {
@@ -177,9 +191,9 @@ module.exports = function (grunt) {
                         name: 'development',
                         hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
                         exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v4',
-                        commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
-                        profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
+                        commonRestEndPoint: 'https://dev-www.materialscloud.org/mcloud/api/v2',
+                        profilesUrl: 'https://dev-www.materialscloud.org/mcloud/api/v2/explore/profiles',
+                        logosUrl: 'https://dev-www.materialscloud.org/mcloud/api/v2/explore/logos'
                     }
                 }
             },
@@ -191,10 +205,10 @@ module.exports = function (grunt) {
                     ENV: {
                         name: 'production',
                         hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
-                        exploreOwnRestEndPoint: '',
-                        commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
-                        profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
+                        exploreOwnRestEndPoint: 'https://dev-www.materialscloud.org/api/v2',
+                        commonRestEndPoint: 'https://dev-www.materialscloud.org/mcloud/api/v2',
+                        profilesUrl: 'https://dev-www.materialscloud.org/mcloud/api/v2/explore/profiles',
+                        logosUrl: 'https://dev-www.materialscloud.org/mcloud/api/v2/explore/logos'
                     }
                 }
             }
@@ -693,6 +707,11 @@ module.exports = function (grunt) {
 
     grunt.registerTask("build", [
         "localbuild"
+    ]);
+
+    grunt.registerTask("build-mc", [
+        "localbuild",
+        "string-replace"
     ]);
 
     grunt.registerTask("default", [
