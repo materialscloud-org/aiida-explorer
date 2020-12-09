@@ -111,7 +111,7 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$provi
         $stateProvider
             .state("main", {
                 templateUrl: "views/main.html",
-                //redirectTo: "main.explore",
+                redirectTo: "main.explore",
                 abstract: true,
                 ncyBreadcrumb: {
                     label: "Home"

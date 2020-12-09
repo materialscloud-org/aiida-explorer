@@ -53,7 +53,7 @@ angular.module("materialsCloudApp").controller('BandDetailsCtrl',
 
                         var theBandPlot = new BandPlot("band", null, {ymin: $scope.bandInfo.yLimits.ymin - 1, ymax: $scope.bandInfo.yLimits.ymax + 1});
 
-                        theBandPlot.addBandStructure($scope.bandInfo.jsondata);
+                        theBandPlot.addBandStructure($scope.bandInfo.jsondata, ['#377eb8', '#B2182B', '#444444']);
 
                         theBandPlot.updateBandPlot();
 
