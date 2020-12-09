@@ -107,6 +107,10 @@ module.exports = function (grunt) {
                                 serveStatic("./bower_components")
                             ),
                             connect().use(
+                                "/explore/node_modules",
+                                serveStatic("./node_modules")
+                            ),
+                            connect().use(
                                 "/docs",
                                 serveStatic("./docs")
                             ),
@@ -536,6 +540,10 @@ module.exports = function (grunt) {
                 dest: "<%= yeoman.dist %>/scripts",
                 src: "**/*"
             },
+            dist_node_modules: {
+                dest: "<%= yeoman.dist %>/",
+                src: 'node_modules/bands-widget/dist/bandstructure.min.js'
+            },
             styles: {
                 expand: true,
                 cwd: "<%= yeoman.app %>/styles/css/",
@@ -590,7 +598,8 @@ module.exports = function (grunt) {
                 //"copy:dist_ngdocs",
                 "copy:dist_externalfiles",
                 "copy:dist_files",
-                "copy:dist_scripts"
+                "copy:dist_scripts",
+                "copy:dist_node_modules"
             ]
         },
 
