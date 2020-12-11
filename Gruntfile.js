@@ -189,7 +189,7 @@ module.exports = function (grunt) {
             dist: {
                 constants: {
                     ENV: {
-                        hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
+                        hostAiidaBackend: '<%= yeoman.hostAiidaProductionBackend %>',
                         exploreOwnRestEndPoint: '',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
                         profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
