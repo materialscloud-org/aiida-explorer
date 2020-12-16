@@ -48,7 +48,11 @@ angular.module("materialsCloudApp").controller("MainCtrl",
 
             $scope.toggleTheme = function () {
                 isDarkTheme = localStorage.getItem(isDarkThemeKey);
-                localStorage.setItem(isDarkThemeKey, !isDarkTheme);
+                if (isDarkTheme) {
+                    localStorage.setItem(isDarkThemeKey, '');
+                } else { 
+                    localStorage.setItem(isDarkThemeKey, '1');
+                }
                 document.body.classList.toggle('dark-theme');
             };
         }
