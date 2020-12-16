@@ -5,6 +5,7 @@
 body {
 	--primary: #ffffff;
 	--primary-text: #000000;
+	--primary-text-light: #363636;
 	--primary-light: #ffffff;
 	--primary-dark: #c2c2c2;
 	--secondary: #e0e0e0;
@@ -26,6 +27,7 @@ body {
 body.dark-theme {
 	--primary: #212121;
 	--primary-text: #ffffff;
+	--primary-text-light: #d6d6d6;
 	--primary-light: #484848;
 	--primary-dark: #000000;
 	--secondary: #757575;
@@ -47,6 +49,11 @@ body.dark-theme {
 html,
 body {
 	background-color: var(--primary);
+	color: var(--primary-text);
+}
+
+input::placeholder {
+	color: var(--primary-text-light)
 }
 
 .mcloud-home-container .tagline-container {
