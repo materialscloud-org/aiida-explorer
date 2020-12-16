@@ -107,6 +107,10 @@ module.exports = function (grunt) {
                                 serveStatic("./bower_components")
                             ),
                             connect().use(
+                                "/explore/node_modules",
+                                serveStatic("./node_modules")
+                            ),
+                            connect().use(
                                 "/docs",
                                 serveStatic("./docs")
                             ),
@@ -179,31 +183,12 @@ module.exports = function (grunt) {
             options: {
                 space: '  ',
                 wrap: '"use strict";\n\n {\%= __ngModule %}',
-                name: 'config'
+                name: 'config',
+                dest: '<%= yeoman.app %>/scripts/config.js'
             },
-            // Environment targets
-            development: {
-                options: {
-                    dest: '<%= yeoman.app %>/scripts/config.js'
-                },
+            dist: {
                 constants: {
                     ENV: {
-                        name: 'development',
-                        hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
-                        exploreOwnRestEndPoint: 'http://127.0.0.1:5000/api/v4',
-                        commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
-                        profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
-                    }
-                }
-            },
-            production: {
-                options: {
-                    dest: '<%= yeoman.app %>/scripts/config.js'
-                },
-                constants: {
-                    ENV: {
-                        name: 'production',
                         hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
                         exploreOwnRestEndPoint: '',
                         commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
@@ -555,6 +540,10 @@ module.exports = function (grunt) {
                 dest: "<%= yeoman.dist %>/scripts",
                 src: "**/*"
             },
+            dist_node_modules: {
+                dest: "<%= yeoman.dist %>/",
+                src: 'node_modules/bands-widget/dist/bandstructure.min.js'
+            },
             styles: {
                 expand: true,
                 cwd: "<%= yeoman.app %>/styles/css/",
@@ -609,7 +598,8 @@ module.exports = function (grunt) {
                 //"copy:dist_ngdocs",
                 "copy:dist_externalfiles",
                 "copy:dist_files",
-                "copy:dist_scripts"
+                "copy:dist_scripts",
+                "copy:dist_node_modules"
             ]
         },
 
@@ -661,7 +651,7 @@ module.exports = function (grunt) {
             "sass",
             "copy:fonts",
             //"copy:externalstyles",
-            "ngconstant:development",
+            "ngconstant",
             //"ngdocs",
             //"wiredep",
             "concurrent:server",
@@ -689,7 +679,7 @@ module.exports = function (grunt) {
     grunt.registerTask("localbuild", [
         "clean:dist",
         "sass",
-        'ngconstant:development',
+        'ngconstant',
         //"wiredep",
         "useminPrepare",
         "concurrent:distprepare",
@@ -706,6 +696,10 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("build", [
+        "localbuild"
+    ]);
+
+    grunt.registerTask("build-mc", [
         "localbuild",
         "string-replace"
     ]);
