@@ -45,6 +45,10 @@ angular.module('materialsCloudApp').controller('ServerconnectCtrl', [
 
 		$scope.displayUserEndPoint = '';
 
+		// Auth Credentials
+		$scope.username = '';
+		$scope.password = '';
+
 		/**
 		 * @ngdoc
 		 * @name materialsCloudApp.controller:ServerconnectCtrl#connectServer
@@ -58,6 +62,7 @@ angular.module('materialsCloudApp').controller('ServerconnectCtrl', [
 		 * @returns {undefined} It doesn't return.
 		 */
 		$scope.connectServer = function () {
+			console.log($scope.username,$scope.password)
 			if ($scope.connectForm.serverendpoint.$valid) {
 				$scope.checkServerUp($scope.userRestEndPoint, true);
 			} else {
@@ -156,5 +161,15 @@ angular.module('materialsCloudApp').controller('ServerconnectCtrl', [
 		if (endpoint) {
 			$scope.checkServerUp(endpoint, false);
 		}
+
+		$("#auth-required").on( "click", function() {
+			// this function will get executed every time the #home element is clicked (or tab-spacebar changed)
+			if ($(this).is(":checked")) // "this" refers to the element that fired the event
+			{
+				$("#credentials-form").slideDown();
+			} else { 
+				$("#credentials-form").slideUp();
+			}
+	});
 	},
 ]);

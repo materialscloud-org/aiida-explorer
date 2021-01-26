@@ -27,6 +27,19 @@
                                 </span>
                             </div>
 
+                            <div class="input-group">
+                                <label for='auth-required'>Please check if use static auth on server</label>
+                                <input type='checkbox' id="auth-required">
+                            </div>
+
+                            <div id="credentials-form" style='display: none'>
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" name="username" ng-model="username">
+    
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" name="password" ng-model="password">
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-12 control">
                                     <div style="border-top: 0px solid#d8cece; padding-top:10px; font-size:95%; margin-left: -12px;"
@@ -37,6 +50,9 @@
                             </div>
                         </form>
                         <div style="text-align: center; ">
+                           
+
+
                             <b>Note</b>: Feature available in Firefox and Google Chrome only.
                         </div>
                     </div>
