@@ -362,7 +362,7 @@ app
 							if (baseUrl) {
 								if (utils.isUrlValid(baseUrl)) {
 									serverConnectService
-										.testServer(baseUrl)
+										.testServer(baseUrl, $scope.username, $scope.password)
 										// handle success
 										.then(
 											function (data) {

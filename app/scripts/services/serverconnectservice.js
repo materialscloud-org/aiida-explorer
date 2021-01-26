@@ -41,18 +41,13 @@ angular.module('materialsCloudApp').factory('serverConnectService', [
 			 *
 			 * @returns {object} deferred promise with server's response.
 			 */
-			testServer: function (serverEndpoint) {
-				// $http.defaults.headers.common.Authorization =
-				// 'Basic YWRtaW46NTQzMjE=';
-
+			testServer: function (serverEndpoint, username, password) {
+				if (username && password) { 
+					$http.defaults.headers.common['Authorization'] = 'Basic ' + window.btoa(username + ":" + password);
+				}
 				var req = {
 					method: 'GET',
-					// url: 'http://135.181.145.250:18080/api/v4/server',
 					url: serverEndpoint + CONFIG.REST_API.SERVER.BASE,
-					headers: {
-						Authorization: 'Basic YWRtaW46NTQzMjE=',
-						// Origni: serverEndpoint + CONFIG.REST_API.SERVER.BASE,
-					},
 				};
 
 				var deferred = $q.defer();

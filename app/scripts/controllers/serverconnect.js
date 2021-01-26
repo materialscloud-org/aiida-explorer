@@ -62,7 +62,6 @@ angular.module('materialsCloudApp').controller('ServerconnectCtrl', [
 		 * @returns {undefined} It doesn't return.
 		 */
 		$scope.connectServer = function () {
-			console.log($scope.username,$scope.password)
 			if ($scope.connectForm.serverendpoint.$valid) {
 				$scope.checkServerUp($scope.userRestEndPoint, true);
 			} else {
@@ -75,7 +74,7 @@ angular.module('materialsCloudApp').controller('ServerconnectCtrl', [
 
 		$scope.checkServerUp = function (endpoint, redirect) {
 			serverConnectService
-				.testServer(endpoint)
+				.testServer(endpoint, $scope.username, $scope.password)
 				// handle success
 				.then(
 					function (data) {
