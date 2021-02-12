@@ -19,8 +19,8 @@ module.exports = function (grunt) {
         app: require("./bower.json").appPath || "app",
         dist: "dist",
         hostBackend: "http://localhost",
-        hostAiidaProductionBackend: "https://aiida-dev.materialscloud.org",
-        hostAiidaDevelopmentBackend: "https://dev-aiida-dev.materialscloud.org"
+        hostAiidaProductionBackend: "https://aiida.materialscloud.org",
+        hostAiidaDevelopmentBackend: "https://dev-aiida.materialscloud.org"
     };
 
     // Define the configuration for all the tasks
