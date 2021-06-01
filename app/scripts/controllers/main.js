@@ -22,13 +22,13 @@ angular.module("materialsCloudApp").controller("MainCtrl",
 
             // display maintenance message
             // note for the future, to avoid to make mistakes, that we are in +0100 in winter, +0200 during daylight saving time
-            var endmaintenance = new Date("2021-05-19T20:00:00+02:00");
+            var endmaintenance = new Date("2021-06-07T15:30:00+02:00");
             var current = new Date();
 
             var showMaintenanceMessage = true;
 
-            var message = "NOTE! Materials Cloud might be inaccessible on Wednesday, May 19th, 2021" +
-                " from 7 AM until 8 PM CET" +
+            var message = "NOTE! Materials Cloud might be inaccessible on Monday, June 7th, 2021" +
+                " from 7:30 AM until 3:30 PM CET" +
                 " due to maintenance work at our infrastructure provider CSCS." +
                 " <br>We apologize for any inconvenience.";
 
