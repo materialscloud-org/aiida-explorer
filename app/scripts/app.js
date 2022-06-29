@@ -686,6 +686,7 @@ function loadProfileConfig () {
                 "AUTHORS": profile.authors,
                 "DESCRIPTION": profile.description,
                 "ARCHIVE_ENTRY_DOI": profile.doi,
+                "ARCHIVE_ENTRY_DOIS": profile.dois,
                 "REST_API_MAJOR_VERSION": profile.rest_url.slice(-2)
             };
         });
