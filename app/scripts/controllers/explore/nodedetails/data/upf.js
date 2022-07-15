@@ -33,7 +33,7 @@ angular.module("materialsCloudApp").controller('UpfDetailsCtrl',
                             $scope.downloadUrl = $scope.profileRestEndPoint
                                 + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DATA"] + "/" + $scope.nodeId
                                 + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DOWNLOAD"]
-                                + "?download_format=" + response[0];
+                                + "?download_format=upf";
                     });
             }
         }

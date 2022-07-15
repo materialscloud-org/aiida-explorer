@@ -1,11 +1,22 @@
 <div style="margin-bottom: 30px; margin-top: 30px;" class="archive-entry-available">
     <h3 style="color: #d21717 !important; display:inline-block">Selected Profile: {{selectedProfileDisplayName}}</h3>
-
+    <!--
     <span class="archive-doicitation" ng-if="selectedProfileInfo.ARCHIVE_ENTRY_DOI !== undefined" style="display: inline-block;vertical-align: middle; margin-left: 5px;">
         <span class="doi-badge">
             <span class="doi-left">DOI</span><a href="https://doi.org/{{selectedProfileInfo.ARCHIVE_ENTRY_DOI}}" class="doi-right">{{selectedProfileInfo.ARCHIVE_ENTRY_DOI}}</a>
         </span>
     </span>
+    -->
+    <div class="archive-doicitation" ng-if="selectedProfileInfo.ARCHIVE_ENTRY_DOI !== undefined">
+        <span class="doi-badge">
+            <span class="doi-left">DOI</span><a href="https://doi.org/{{ selectedProfileInfo.ARCHIVE_ENTRY_DOI }}" class="doi-right">{{ selectedProfileInfo.ARCHIVE_ENTRY_DOI }}</a>
+        </span>
+    </div>
+    <div class="archive-doicitation" ng-if="selectedProfileInfo.ARCHIVE_ENTRY_DOIS !== undefined" ng-repeat="doi in selectedProfileInfo.ARCHIVE_ENTRY_DOIS">
+        <span class="doi-badge">
+            <span class="doi-left">DOI</span><a href="https://doi.org/{{ doi }}" class="doi-right" target="_blank">{{ doi }}</a>
+        </span>
+    </div>
 </div>
 
 <div class="view-menu-container">

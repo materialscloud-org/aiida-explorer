@@ -55,6 +55,9 @@
                 <span class="doi-badge" ng-if="profileInfo.ARCHIVE_ENTRY_DOI !== undefined">
                     <span style="margin-bottom: 11px;" class="doi-left">DOI</span><a href="https://doi.org/{{ profileInfo.ARCHIVE_ENTRY_DOI }}" class="doi-right">{{ profileInfo.ARCHIVE_ENTRY_DOI }}</a>
                 </span>
+                <span class="doi-badge" ng-if="profileInfo.ARCHIVE_ENTRY_DOIS !== undefined" ng-repeat="doi in profileInfo.ARCHIVE_ENTRY_DOIS">
+                    <span style="margin-bottom: 11px;" class="doi-left">DOI</span><a href="https://doi.org/{{ doi }}" class="doi-right" style="margin-right: 10px;" target="_blank">{{ doi }}</a>
+                </span>
                 <div style="margin-bottom: 4px;" ng-if="profileInfo.AUTHORS !== undefined">
                     <span style="display: inline"><b>Authors:</b></span>
                     <span style="display: inline" compile="profileInfo.AUTHORS"></span>
