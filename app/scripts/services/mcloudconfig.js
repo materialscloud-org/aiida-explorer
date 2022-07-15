@@ -191,15 +191,15 @@ app.constant("CONFIG", (function() {
 
                 // data nodes
                 DATA: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:""},
-                STRUCTURES: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.structure.StructureData."},
-                CIF: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.cif.CifData."},
-                PARAMETERS: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.parameter.ParameterData."},
-                KPOINTS: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array.kpoints.KpointsData."},
-                UPF: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.upf.UpfData."},
-                REMOTE: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.remote.RemoteData."},
-                TRAJECTORY: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array.trajectory.TrajectoryData."},
-                BANDS: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array.bands.BandsData."},
-                ARRAY: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array."},
+                STRUCTURES: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.structure.StructureData."},
+                CIF: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.cif.CifData."},
+                PARAMETERS: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.parameter.ParameterData."},
+                KPOINTS: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array.kpoints.KpointsData."},
+                UPF: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.upf.UpfData."},
+                REMOTE: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.remote.RemoteData."},
+                TRAJECTORY: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array.trajectory.TrajectoryData."},
+                BANDS: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array.bands.BandsData."},
+                ARRAY: {field:"type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array."},
 
                 // computers
                 EPFL: {field:"hostname", fieldType:"STRING", operator:"ENDSWITH", value:"epfl.ch"},
@@ -222,15 +222,15 @@ app.constant("CONFIG", (function() {
 
                 // data nodes
                 DATA: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:""},
-                STRUCTURES: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.structure.StructureData."},
-                CIF: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.cif.CifData."},
-                PARAMETERS: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.parameter.ParameterData."},
-                KPOINTS: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array.kpoints.KpointsData."},
-                UPF: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.upf.UpfData."},
-                REMOTE: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.remote.RemoteData."},
-                TRAJECTORY: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array.trajectory.TrajectoryData."},
-                BANDS: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array.bands.BandsData."},
-                ARRAY: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.array."},
+                STRUCTURES: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.structure.StructureData."},
+                CIF: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.cif.CifData."},
+                PARAMETERS: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.parameter.ParameterData."},
+                KPOINTS: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array.kpoints.KpointsData."},
+                UPF: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.upf.UpfData."},
+                REMOTE: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.remote.RemoteData."},
+                TRAJECTORY: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array.trajectory.TrajectoryData."},
+                BANDS: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array.bands.BandsData."},
+                ARRAY: {field:"node_type", fieldType:"STRING", operator:"STARTSWITH", value:"data.core.array."},
 
                 // computers
                 EPFL: {field:"hostname", fieldType:"STRING", operator:"ENDSWITH", value:"epfl.ch"},
@@ -244,15 +244,15 @@ app.constant("CONFIG", (function() {
                 PROCESS: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO",value:"process.%|%"},
                 // data nodes
                 DATA: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.%|"},
-                STRUCTURES: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.structure.StructureData."},
-                CIF: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.cif.CifData."},
-                PARAMETERS: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.parameter.ParameterData."},
-                KPOINTS: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.array.kpoints.KpointsData."},
-                UPF: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.upf.UpfData."},
-                REMOTE: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.remote.RemoteData."},
-                TRAJECTORY: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.array.trajectory.TrajectoryData."},
-                BANDS: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.array.bands.BandsData."},
-                ARRAY: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.array."},
+                STRUCTURES: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.structure.StructureData."},
+                CIF: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.cif.CifData."},
+                PARAMETERS: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.parameter.ParameterData."},
+                KPOINTS: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.array.kpoints.KpointsData."},
+                UPF: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.upf.UpfData."},
+                REMOTE: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.remote.RemoteData."},
+                TRAJECTORY: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.array.trajectory.TrajectoryData."},
+                BANDS: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.array.bands.BandsData."},
+                ARRAY: {field:"full_type", fieldType:"STRING", operator:"IS_EQUAL_TO", value:"data.core.array."},
 
                 // computers
                 EPFL: {field:"hostname", fieldType:"STRING", operator:"ENDSWITH", value:"epfl.ch"},
@@ -337,18 +337,18 @@ app.constant("CONFIG", (function() {
             "calculation.job.wannier90.Wannier90Calculation.": "Wannier90",
 
             // data nodes
-            "data.structure.StructureData.": "Structure",
-            "data.parameter.ParameterData.": "Parameter",
-            "data.array.ArrayData.": "Array",
-            "data.array.kpoints.KpointsData.": "Kpoints",
-            "data.array.trajectory.TrajectoryData.": "Trajectory",
-            "data.orbital.OrbitalData.": "Orbital",
-            "data.upf.UpfData.": "Upf",
-            "data.remote.RemoteData.": "Remote",
-            "data.cif.CifData.": "Cif",
-            "data.folder.FolderData.": "Folder",
-            "data.array.bands.BandsData.": "Bands",
-            "data.singlefile.SinglefileData.": "Singlefile",
+            "data.core.structure.StructureData.": "Structure",
+            "data.core.parameter.ParameterData.": "Parameter",
+            "data.core.array.ArrayData.": "Array",
+            "data.core.array.kpoints.KpointsData.": "Kpoints",
+            "data.core.array.trajectory.TrajectoryData.": "Trajectory",
+            "data.core.orbital.OrbitalData.": "Orbital",
+            "data.core.upf.UpfData.": "Upf",
+            "data.core.remote.RemoteData.": "Remote",
+            "data.core.cif.CifData.": "Cif",
+            "data.core.folder.FolderData.": "Folder",
+            "data.core.array.bands.BandsData.": "Bands",
+            "data.core.singlefile.SinglefileData.": "Singlefile",
             "CALCULATION": "Calculation",
             "DATA": "Data",
             "CODE": "Code",
@@ -366,18 +366,18 @@ app.constant("CONFIG", (function() {
             "calculation.job.wannier90.Wannier90Calculation.": "Wannier90",
 
             // data nodes
-            "data.structure.StructureData.": "Structure",
-            "data.parameter.ParameterData.": "Parameter",
-            "data.array.ArrayData.": "Array",
-            "data.array.kpoints.KpointsData.": "Kpoints",
-            "data.array.trajectory.TrajectoryData.": "Trajectory",
-            "data.orbital.OrbitalData.": "Orbital",
-            "data.upf.UpfData.": "Upf",
-            "data.remote.RemoteData.": "Remote",
-            "data.cif.CifData.": "Cif",
-            "data.folder.FolderData.": "Folder",
-            "data.array.bands.BandsData.": "Bands",
-            "data.singlefile.SinglefileData.": "Singlefile",
+            "data.core.structure.StructureData.": "Structure",
+            "data.core.parameter.ParameterData.": "Parameter",
+            "data.core.array.ArrayData.": "Array",
+            "data.core.array.kpoints.KpointsData.": "Kpoints",
+            "data.core.array.trajectory.TrajectoryData.": "Trajectory",
+            "data.core.orbital.OrbitalData.": "Orbital",
+            "data.core.upf.UpfData.": "Upf",
+            "data.core.remote.RemoteData.": "Remote",
+            "data.core.cif.CifData.": "Cif",
+            "data.core.folder.FolderData.": "Folder",
+            "data.core.array.bands.BandsData.": "Bands",
+            "data.core.singlefile.SinglefileData.": "Singlefile",
             "CALCULATION": "Calculation",
             "DATA": "Data",
             "CODE": "Code",
@@ -395,18 +395,18 @@ app.constant("CONFIG", (function() {
             "calculation.job.wannier90.Wannier90Calculation.": "Wannier90",
 
             // data nodes
-            "data.structure.StructureData.": "Structure",
-            "data.dict.Dict.": "Parameter",
-            "data.array.ArrayData.": "Array",
-            "data.array.kpoints.KpointsData.": "Kpoints",
-            "data.array.trajectory.TrajectoryData.": "Trajectory",
-            "data.orbital.OrbitalData.": "Orbital",
-            "data.upf.UpfData.": "Upf",
-            "data.remote.RemoteData.": "Remote",
-            "data.cif.CifData.": "Cif",
-            "data.folder.FolderData.": "Folder",
-            "data.array.bands.BandsData.": "Bands",
-            "data.singlefile.SinglefileData.": "Singlefile",
+            "data.core.structure.StructureData.": "Structure",
+            "data.core.dict.Dict.": "Parameter",
+            "data.core.array.ArrayData.": "Array",
+            "data.core.array.kpoints.KpointsData.": "Kpoints",
+            "data.core.array.trajectory.TrajectoryData.": "Trajectory",
+            "data.core.orbital.OrbitalData.": "Orbital",
+            "data.core.upf.UpfData.": "Upf",
+            "data.core.remote.RemoteData.": "Remote",
+            "data.core.cif.CifData.": "Cif",
+            "data.core.folder.FolderData.": "Folder",
+            "data.core.array.bands.BandsData.": "Bands",
+            "data.core.singlefile.SinglefileData.": "Singlefile",
             "CALCULATION": "Calculation",
             "DATA": "Data",
             "CODE": "Code",
@@ -424,16 +424,16 @@ app.constant("CONFIG", (function() {
                 {display_name: "Code", filter_name: "code.Code."}
             ],
             data: [
-                {display_name: "Array", filter_name: "data.array.ArrayData."},
-                {display_name: "Bands", filter_name: "data.array.bands.BandsData."},
-                {display_name: "Kpoints", filter_name: "data.array.kpoints.KpointsData."},
-                {display_name: "Trajectory", filter_name: "data.array.trajectory.TrajectoryData."},
-                {display_name: "Cif", filter_name: "data.cif.CifData."},
-                {display_name: "Folder", filter_name: "data.folder.FolderData."},
-                {display_name: "Parameter", filter_name: "data.parameter.ParameterData."},
-                {display_name: "Remote", filter_name: "data.remote.RemoteData."},
-                {display_name: "Structure", filter_name: "data.structure.StructureData."},
-                {display_name: "Upf", filter_name: "data.upf.UpfData."}
+                {display_name: "Array", filter_name: "data.core.array.ArrayData."},
+                {display_name: "Bands", filter_name: "data.core.array.bands.BandsData."},
+                {display_name: "Kpoints", filter_name: "data.core.array.kpoints.KpointsData."},
+                {display_name: "Trajectory", filter_name: "data.core.array.trajectory.TrajectoryData."},
+                {display_name: "Cif", filter_name: "data.core.cif.CifData."},
+                {display_name: "Folder", filter_name: "data.core.folder.FolderData."},
+                {display_name: "Parameter", filter_name: "data.core.parameter.ParameterData."},
+                {display_name: "Remote", filter_name: "data.core.remote.RemoteData."},
+                {display_name: "Structure", filter_name: "data.core.structure.StructureData."},
+                {display_name: "Upf", filter_name: "data.core.upf.UpfData."}
             ]
         },
         NODE_DETAILS: {
@@ -446,11 +446,11 @@ app.constant("CONFIG", (function() {
                         "process.calculation.calcfunction.CalcFunctionNode.": "INLINE"
                     },
                     DATA: {
-                        "data.structure.StructureData.": "STRUCTURES",
-                        "data.array.bands.BandsData.": "BANDS",
-                        "data.array.kpoints.KpointsData.": "KPOINTS",
-                        "data.upf.UpfData.": "UPF",
-                        "data.cif.CifData.": "CIF"
+                        "data.core.structure.StructureData.": "STRUCTURES",
+                        "data.core.array.bands.BandsData.": "BANDS",
+                        "data.core.array.kpoints.KpointsData.": "KPOINTS",
+                        "data.core.upf.UpfData.": "UPF",
+                        "data.core.cif.CifData.": "CIF"
                     },
                     CODE: {
                         // add here
@@ -474,11 +474,11 @@ app.constant("CONFIG", (function() {
                         "process.workflow.workchain.WorkChainNode.": "WORKCHAIN"
                     },
                     DATA: {
-                        "data.structure.StructureData.": "STRUCTURES",
-                        "data.array.bands.BandsData.": "BANDS",
-                        "data.array.kpoints.KpointsData.": "KPOINTS",
-                        "data.upf.UpfData.": "UPF",
-                        "data.cif.CifData.": "CIF"
+                        "data.core.structure.StructureData.": "STRUCTURES",
+                        "data.core.array.bands.BandsData.": "BANDS",
+                        "data.core.array.kpoints.KpointsData.": "KPOINTS",
+                        "data.core.upf.UpfData.": "UPF",
+                        "data.core.cif.CifData.": "CIF"
                     },
                     CODE: {
                         // add here
@@ -496,11 +496,11 @@ app.constant("CONFIG", (function() {
                         "process.workflow.workchain.WorkChainNode.": "WORKCHAIN"
                     },
                     DATA: {
-                        "data.structure.StructureData.": "STRUCTURES",
-                        "data.array.bands.BandsData.": "BANDS",
-                        "data.array.kpoints.KpointsData.": "KPOINTS",
-                        "data.upf.UpfData.": "UPF",
-                        "data.cif.CifData.": "CIF"
+                        "data.core.structure.StructureData.": "STRUCTURES",
+                        "data.core.array.bands.BandsData.": "BANDS",
+                        "data.core.array.kpoints.KpointsData.": "KPOINTS",
+                        "data.core.upf.UpfData.": "UPF",
+                        "data.core.cif.CifData.": "CIF"
                     },
                     CODE: {
                         // add here

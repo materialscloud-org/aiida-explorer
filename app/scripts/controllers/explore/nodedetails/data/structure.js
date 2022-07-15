@@ -147,7 +147,7 @@ angular.module("materialsCloudApp").controller('StructureDetailsCtrl',
              */
                 nodeService.getDownloadFormats("DATA", $scope.profileRestEndPoint)
                     .then(function (response) {
-                            response = response.data.data['data.structure.StructureData.|'];
+                            response = response.data.data['data.core.structure.StructureData.|'];
                             // download options
                             var base = $scope.profileRestEndPoint + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DATA"]
                                 + "/" + $scope.nodeId + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DOWNLOAD"] + "?download_format=";
