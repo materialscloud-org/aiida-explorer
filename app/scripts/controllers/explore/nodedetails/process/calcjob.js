@@ -135,7 +135,7 @@ angular.module("materialsCloudApp").controller('CalcDetailsCtrl',
                     .then(function (response) {
                             var outgoingNodes = response.data.data[CONFIG.DATA_PATH[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["OUTGOING"]];
                             $.each(outgoingNodes, function(index, node){
-                                if (node.node_type == "data.folder.FolderData."){
+                                if (node.node_type == "data.core.folder.FolderData."){
                                     $scope.outputFolderDataId = node.uuid;
                                 }
                             });

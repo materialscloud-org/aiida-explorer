@@ -29,7 +29,7 @@ angular.module("materialsCloudApp").controller('UpfDetailsCtrl',
              */
                 nodeService.getDownloadFormats("DATA", $scope.profileRestEndPoint)
                     .then(function (response) {
-                            response = response.data.data["data.upf.UpfData.|"];
+                            response = response.data.data["data.core.upf.UpfData.|"];
                             $scope.downloadUrl = $scope.profileRestEndPoint
                                 + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DATA"] + "/" + $scope.nodeId
                                 + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DOWNLOAD"]
