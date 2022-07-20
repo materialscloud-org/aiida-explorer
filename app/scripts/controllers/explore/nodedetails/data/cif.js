@@ -115,7 +115,7 @@ app.controller('CifDetailsCtrl',
              */
                 nodeService.getDownloadFormats("DATA", $scope.profileRestEndPoint)
                     .then(function (response) {
-                            response = response.data.data["data.cif.CifData.|"];
+                            response = response.data.data["data.core.cif.CifData.|"];
                             // download options
                             var base = $scope.profileRestEndPoint + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DATA"]
                                 + "/" + $scope.nodeId + CONFIG.REST_API.NODE[$scope.selectedProfileInfo.REST_API_MAJOR_VERSION.toUpperCase()]["DOWNLOAD"] + "?download_format=";
