@@ -90,3 +90,22 @@ $page-side-bar-width:           250px;
   }
 }
 
+.archive-entry-available {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.discover-button {
+  border: 1px solid #3560A0 !important;
+  background-color: #3560A0 !important;
+  text-transform: none !important;
+  color: white !important;
+  height: 34px;
+  margin: 22px 5px 5px 0px;
+  vertical-align: middle;
+}
+
+.discover-button:hover {
+  background-color: #4472b8 !important;
+}
