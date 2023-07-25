@@ -230,6 +230,9 @@ app.service("utils", ["CONFIG", "storageService", "messageService", "ENV", "PROF
 
             if(endPointInfo !== undefined) {
                 endPointInfo.RESTENDPOINT = ENV.hostAiidaBackend + endPointInfo.REST_URL;
+                if (endPointInfo.DISCOVER_URL != null) {
+                    endPointInfo.DISCOVER_URL_FULL = ENV.hostBackend + endPointInfo.DISCOVER_URL;
+                }
                 return endPointInfo;
             }
             else

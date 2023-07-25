@@ -200,6 +200,8 @@ app.config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$provi
 
                     function gotoPage(){
 
+                        console.log($scope.selectedProfileInfo);
+
                         var currentState = $state.current.name;
                         var statetogo = "";
 
@@ -687,7 +689,8 @@ function loadProfileConfig () {
                 "DESCRIPTION": profile.description,
                 "ARCHIVE_ENTRY_DOI": profile.doi,
                 "ARCHIVE_ENTRY_DOIS": profile.dois,
-                "REST_API_MAJOR_VERSION": profile.rest_url.slice(-2)
+                "REST_API_MAJOR_VERSION": profile.rest_url.slice(-2),
+                "DISCOVER_URL": profile.discover_url,
             };
         });
         app.constant("PROFILES", profiles);
