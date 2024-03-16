@@ -15,6 +15,12 @@
 angular.module("materialsCloudApp").controller("MainCtrl",
     ["$scope", "$location", "$window",
         function ($scope, $location, $window) {
+            var isDarkThemeKey = 'isDarkTheme';
+            var isDarkTheme = localStorage.getItem(isDarkThemeKey);
+
+            if (isDarkTheme) {
+                document.body.classList.toggle('dark-theme');
+            }
 
             $scope.isActive = function (path) {
                 return ($location.path().substr(0, path.length) === path) ? 'active' : '';
@@ -39,6 +45,16 @@ angular.module("materialsCloudApp").controller("MainCtrl",
 
             $scope.changePath = function (path) {
                 $window.location.href = $window.location.origin + "/" + path;
+            };
+
+            $scope.toggleTheme = function () {
+                isDarkTheme = localStorage.getItem(isDarkThemeKey);
+                if (isDarkTheme) {
+                    localStorage.setItem(isDarkThemeKey, '');
+                } else { 
+                    localStorage.setItem(isDarkThemeKey, '1');
+                }
+                document.body.classList.toggle('dark-theme');
             };
         }
     ]
