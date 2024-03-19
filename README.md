@@ -27,81 +27,37 @@ The location of the JSON endpoint as well as the prefix for the AiiDA REST API e
 * **develop:** (default) The development branch
 * **staging:** Used for staging and production servers
 
-## Development Setup
+## Development setup
 
-### Ubuntu 16.04
+Note: The following works with node 14 but not 16! (Suggested setup: `nvm install 14`.)
 
-Install nodejs and npm:
+Install dependencies:
 
 ```bash
-sudo apt-get install nodejs npm
+npm install
+npx bower install
 ```
 
-> **Note:** If you get errors like **"E: Unable to correct problems, you have held broken packages**", install the packages from source distribution. 
+Note: the project will not work if a 'profile list' is not accessible. Update Gruntfile.js to use the one of Materials Cloud:
 
-Install yo, bower, grunt
 ```bash
-sudo npm install --global yo bower grunt-cli sass
+sed -i 's/http:\/\/localhost/https:\/\/www.materialscloud.org/g' Gruntfile.js
 ```
 
-> **Note.** If you get an error like:
+Build with Grunt:
 
 ```bash
-sh: 1: node: not found
-npm WARN This failure might be due to the use of legacy binary "node"
-npm WARN For further explanations, please read /usr/share/doc/nodejs/README.De"**
+npx grunt build
 ```
 
-, install nodejs-legacy:
+Deploy:
 
 ```bash
-sudo apt-get install nodejs-legacy
-```
-
-Install angular using npm
-```bash
-sudo npm install --global generator-angular@0.11.1
-```
-
-### OSX
-
-Download and Install node and npm from OSX [installer](https://nodejs.org/en/download/)
-
-Update npm
-```bash
-sudo npm install -g npm
-```
-
-Install grunt-cli, bower, yo, generator-karma, generator-angular:
-```bash
-sudo npm install -g grunt-cli bower yo generator-karma generator-angular
-```
-
-Install ruby gems for SaSS
-```bash
-sudo gem install sass bundler
-```
-
-## Building 
-NPM, Grunt and Bower toolchain is used in order to automate the build process of Materials Cloud web portal. 
-Assuming these tools are already installed, one can build the **distribution** folder using:
-
-```bash
-git clone git@github.com:materialscloud-org/aiida-explorer.git
-cd aiida-explorer
-npm install && bower install
-grunt build
-```
-This will build the **dist** folder inside the aiida-explorer which can be deployed on the server.
-
-## Deployment
-
-If you have received the **distribution** folder, you can run simple python web server as:
-```bash
-cd aiida-explorer/dist
+cd dist
 python -m http.server
 ```
-This will start simple http server from the directory which can be accessible at [http://localhost:8000](http://localhost:8000)
+
+Note: to access a local AiiDA REST API started with `verdi restapi`, there might be a CORS error occurring. For development, one can just disable CORS. E.g. in Chrome on linux: `google-chrome --disable-web-security`
 
 ## License
 

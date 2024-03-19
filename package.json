@@ -18,6 +18,8 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "connect-modrewrite": "^0.10.1",
+    "generator-angular": "^0.16.0",
+    "generator-karma": "^2.0.1",
     "grunt": "^1.0.4",
     "grunt-autoprefixer": "^2.0.0",
     "grunt-concurrent": "^1.0.0",
