@@ -35,7 +35,14 @@
                                 <li><a href="/infrastructure" ng-click="changePath('infrastructure')">Infrastructure</a></li>
                                 <li><a href="/team" ng-click="changePath('team')">Team &amp; Contact</a></li>
                                 <li><a href="/home#partners" ng-click="changePath('home#partners')">Partners</a></li>
-				<li ng-class="{ active: isActive('/connect')}"><a ui-sref="main.serverconnect">Connect your REST API</a></li>
+																<li ng-class="{ active: isActive('/connect')}">
+																	<a ui-sref="main.serverconnect"
+																		>Connect your REST API</a
+																	>
+																</li>
+																<li ng-click="toggleTheme()">
+																	<a>Toggle Design Theme</a>
+																</li>
                             </ul>
                         </li>
                     </ul>
