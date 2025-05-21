@@ -18,9 +18,8 @@ module.exports = function (grunt) {
     var appConfig = {
         app: require("./bower.json").appPath || "app",
         dist: "dist",
-        hostBackend: "http://localhost",
-        hostAiidaProductionBackend: "https://aiida.materialscloud.org",
-        hostAiidaDevelopmentBackend: "https://dev-aiida.materialscloud.org"
+        hostBackend: process.env.HOST_BACKEND || "http://localhost/mcloud",
+        hostAiida: process.env.HOST_AIIDA || 'https://aiida.materialscloud.org',
     };
 
     // Define the configuration for all the tasks
@@ -190,11 +189,11 @@ module.exports = function (grunt) {
                 constants: {
                     ENV: {
                         hostBackend: '<%= yeoman.hostBackend %>',
-                        hostAiidaBackend: '<%= yeoman.hostAiidaDevelopmentBackend %>',
+                        hostAiidaBackend: '<%= yeoman.hostAiida %>',
                         exploreOwnRestEndPoint: '',
-                        commonRestEndPoint: '<%= yeoman.hostBackend %>/mcloud/api/v2',
-                        profilesUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/profiles',
-                        logosUrl: '<%= yeoman.hostBackend %>/mcloud/api/v2/explore/logos'
+                        commonRestEndPoint: '<%= yeoman.hostBackend %>/api/v2',
+                        profilesUrl: '<%= yeoman.hostBackend %>/api/v2/explore/profiles',
+                        logosUrl: '<%= yeoman.hostBackend %>/api/v2/explore/logos'
                     }
                 }
             }
