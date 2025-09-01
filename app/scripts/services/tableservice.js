@@ -326,7 +326,8 @@ angular.module("materialsCloudApp").factory("tableService", ["nodeService", "uti
                     }
                     else if(nodeType in CONFIG.GRID.DEFAULT_ORDER){
                         // if order is not set, use default order if any
-                        orderDict.orderby = CONFIG.GRID.DEFAULT_ORDER[nodeType];
+                        // NOTE: Disable this for now, as it makes the default initial load very slow (and often times out)
+                        //orderDict.orderby = CONFIG.GRID.DEFAULT_ORDER[nodeType];
                     }
                     return orderDict;
                 }
