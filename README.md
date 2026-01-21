@@ -1,3 +1,8 @@
+> [!WARNING]
+> This repository is **deprecated** and no longer maintained.
+>
+> Please see **https://github.com/aiidateam/aiida-explorer** instead.
+
 [![Build Status](https://github.com/materialscloud-org/aiida-explorer/workflows/ci/badge.svg)](https://github.com/materialscloud-org/aiida-explorer/actions)
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/materialscloud-org/aiida-explorer/blob/master/LICENSE)
 
